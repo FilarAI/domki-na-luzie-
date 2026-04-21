@@ -1,0 +1,3817 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Domki na Luzie — Prywatne domki premium w Beskidach | Basen, Jacuzzi</title>
+  <meta name="description"
+    content="Prywatne domki premium z basenem i jacuzzi w Beskidach. 1 km od stoku narciarskiego. 9.6/10 na Booking.com. Między Krakowem a Zakopanem. Zarezerwuj bezpośrednio." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Swiper.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- FSLightbox CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.min.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#1A1A1A',
+            surface: '#1E2B1E',
+            surface2: '#243424',
+            border: '#2D4A2D',
+            accent: '#C9A96E',
+            'accent-dk': '#A8864D',
+            google: '#4285F4',
+            booking: '#003580',
+            cream: '#F5F0E8',
+            muted: '#9A9A8A',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── CSS Variables ── */
+    :root {
+      --color-bg: #1A1A1A;
+      --color-surface: #1E2B1E;
+      --color-surface2: #243424;
+      --color-accent: #C9A96E;
+      --color-accent-dk: #A8864D;
+      --color-cream: #F5F0E8;
+      --color-muted: #9A9A8A;
+      --color-border: #2D4A2D;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-cream);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* ── Grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ── Typography ── */
+    .heading-display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .heading-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    /* ── Accent gold text ── */
+    .text-gold {
+      color: var(--color-accent);
+    }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-accent);
+      color: #1A1A1A;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease;
+      box-shadow: 0 4px 20px rgba(201, 169, 110, 0.25);
+    }
+
+    .btn-gold:hover {
+      background: var(--color-accent-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201, 169, 110, 0.38);
+    }
+
+    .btn-gold:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1.5px solid var(--color-accent);
+      color: var(--color-accent);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      background: transparent;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(201, 169, 110, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Separator ── */
+    .gold-line {
+      width: 48px;
+      height: 2px;
+      background: var(--color-accent);
+      margin: 1.25rem 0 2rem;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* NAVBAR */
+    /* ─────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background 0.3s ease, backdrop-filter 0.3s ease,
+        box-shadow 0.3s ease;
+      padding: 1.25rem 0;
+    }
+
+    #navbar.scrolled {
+      background: rgba(26, 26, 26, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(201, 169, 110, 0.12), 0 4px 24px rgba(0, 0, 0, 0.4);
+      padding: 0.85rem 0;
+    }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--color-cream);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.9;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      transition: opacity 0.2s, color 0.2s, text-shadow 0.2s;
+    }
+
+    .scrolled .nav-links a {
+      text-shadow: none;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-phone {
+      color: var(--color-cream);
+      text-decoration: none;
+      font-size: 0.875rem;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-phone:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    /* Mobile hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-cream);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 26, 26, 0.98);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      color: var(--color-cream);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ─────────────────────────────────────── */
+    /* HERO */
+    /* ─────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+
+    .hero-slides.loaded {
+      transform: scale(1);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    /* Multiple gradient overlays for depth */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.5) 40%, rgba(26, 26, 26, 0.1) 70%, transparent 100%),
+        linear-gradient(to right, rgba(26, 26, 26, 0.4) 0%, transparent 60%);
+    }
+
+    /* Radial color tint */
+    .hero-tint {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(45, 74, 45, 0.35) 0%, transparent 60%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-content .section-label { order: 1; }
+    .hero-content h1 { order: 2; }
+    .hero-content .hero-subtitle { order: 3; }
+    .hero-content .hero-cta-group { order: 4; }
+    .hero-content .hero-trust-badge { 
+      order: 1.5; /* Positioned between label and heading on mobile */
+      margin-bottom: 1.5rem;
+      align-self: flex-start;
+    }
+
+    .hero-content h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-variation-settings: "SOFT" 100, "WONK" 1;
+      font-size: clamp(3rem, 7.5vw, 5.8rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--color-cream);
+      max-width: 800px;
+      margin: 0 0 1.5rem;
+      text-shadow: 0 4px 64px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content h1 span {
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(245, 240, 232, 0.8);
+      max-width: 520px;
+      margin: 0 0 2.5rem;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-phone {
+      color: var(--color-cream);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.85;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid rgba(245, 240, 232, 0.2);
+      border-radius: 4px;
+      transition: border-color 0.2s, opacity 0.2s, background 0.2s;
+    }
+
+    .hero-phone:hover {
+      opacity: 1;
+      border-color: rgba(245, 240, 232, 0.5);
+      background: rgba(245, 240, 232, 0.05);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.5;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-cream);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--color-accent), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1.1);
+      }
+    }
+
+    /* ── Hero Trust Badge ── */
+    .hero-trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: rgba(30, 43, 30, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      animation: fadeIn 1s ease-out 0.3s both;
+      align-self: flex-start;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content .hero-trust-badge {
+        order: 5; /* Positioned below CTA on desktop */
+        margin-top: 2rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .trust-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-cream);
+    }
+
+    .trust-badge-item img.platform-icon {
+      height: 18px;
+      width: auto;
+      border-radius: 2px;
+    }
+
+    .trust-badge-item svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .trust-badge-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(201, 169, 110, 0.3);
+    }
+
+    .trust-badge-score {
+      color: var(--color-accent);
+    }
+
+    /* ─────────────────────────────────────── */
+    /* TRUST BAR */
+    /* ─────────────────────────────────────── */
+    #trust-bar {
+      background: var(--color-surface);
+      border-top: 1px solid rgba(201, 169, 110, 0.15);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .trust-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .trust-item {
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-right: 1px solid rgba(201, 169, 110, 0.1);
+      transition: background 0.2s;
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-item:hover {
+      background: rgba(201, 169, 110, 0.04);
+    }
+
+    .trust-icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .trust-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 0.25rem;
+      line-height: 1;
+    }
+
+    .trust-label {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* SECTION COMMON */
+    /* ─────────────────────────────────────── */
+    .section-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header.center {
+      text-align: center;
+    }
+
+    .section-header.center .gold-line {
+      margin: 1.25rem auto 2rem;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* GALLERY */
+    /* ─────────────────────────────────────── */
+    #gallery {
+      background: var(--color-bg);
+    }
+
+    .gallery-heading {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--color-cream);
+      max-width: 600px;
+      line-height: 1.2;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 240px;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 280px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 300px;
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    @media (max-width: 767px) {
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+      }
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 26, 26, 0.55) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* FOR WHO */
+    /* ─────────────────────────────────────── */
+    #for-who {
+      background: var(--color-surface);
+    }
+
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .for-who-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .for-who-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(201, 169, 110, 0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .for-who-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--color-accent);
+      background: var(--color-surface2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 169, 110, 0.3);
+    }
+
+    .for-who-card:hover::before {
+      opacity: 1;
+    }
+
+    .for-who-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .for-who-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      margin: 0 0 1rem;
+    }
+
+    .for-who-text {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0 0 1.75rem;
+    }
+
+    .for-who-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s ease, opacity 0.2s;
+    }
+
+    .for-who-link:hover {
+      gap: 0.7rem;
+      opacity: 0.85;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* AMENITIES */
+    /* ─────────────────────────────────────── */
+    #amenities {
+      background: var(--color-bg);
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .amenity-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.75rem;
+      padding: 1.5rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      background: var(--color-surface);
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    }
+
+    .amenity-item:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-12px);
+      background: var(--color-surface2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 169, 110, 0.3);
+    }
+
+    .amenity-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(201, 169, 110, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      flex-shrink: 0;
+    }
+
+    .amenity-label {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .amenities-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      font-style: italic;
+      background: rgba(201, 169, 110, 0.06);
+      border: 1px solid rgba(201, 169, 110, 0.15);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* REVIEWS (SWIPER) */
+    /* ─────────────────────────────────────── */
+    #reviews {
+      background: var(--color-surface);
+      overflow: hidden;
+      padding-bottom: 5rem;
+    }
+
+    .reviews-container {
+      position: relative;
+      padding: 0 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .swiper-reviews {
+      padding: 2rem 0 4rem !important;
+      overflow: visible !important;
+    }
+
+    .review-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+    }
+
+    .review-platform-icon {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      opacity: 0.9;
+    }
+
+    .review-platform-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .review-stars {
+      color: var(--color-accent);
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .review-text {
+      color: var(--color-cream);
+      font-style: italic;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin: 0 0 2rem;
+      flex-grow: 1;
+    }
+
+    .review-author-info strong {
+      color: var(--color-cream);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .review-author {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.25rem;
+    }
+
+    .review-author strong {
+      color: var(--color-cream);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Swiper Navigation & Pagination */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--color-accent) !important;
+      background: rgba(30, 43, 30, 0.6);
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50%;
+      border: 1px solid rgba(201, 169, 110, 0.3);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      top: 50% !important;
+      transform: translateY(-50%);
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.25rem !important;
+      font-weight: bold;
+    }
+
+    .swiper-button-next {
+      right: -1rem !important;
+    }
+
+    .swiper-button-prev {
+      left: -1rem !important;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: var(--color-accent);
+      color: var(--color-bg) !important;
+      border-color: var(--color-accent);
+    }
+
+    .swiper-pagination-bullet {
+      background: var(--color-muted) !important;
+      opacity: 0.3 !important;
+      width: 10px !important;
+      height: 10px !important;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--color-accent) !important;
+      opacity: 1 !important;
+      width: 24px !important;
+      border-radius: 5px !important;
+    }
+
+    .reviews-trust-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-cream);
+    }
+
+    .trust-badge-footer svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .trust-badge-footer span {
+      color: var(--color-accent);
+    }
+
+    .reviews-bottom {
+      margin-top: 3rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .reviews-badge {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .reviews-badge strong {
+      color: var(--color-accent);
+    }
+
+    /* ─────────────────────────────────────── */
+    /* BOOKING */
+    /* ─────────────────────────────────────── */
+    #booking {
+      background: var(--color-bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #booking::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(45, 74, 45, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+    }
+
+    .booking-heading {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--color-cream);
+      margin: 0 0 2rem;
+      line-height: 1.15;
+    }
+
+    .booking-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .booking-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--color-cream);
+      line-height: 1.5;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(201, 169, 110, 0.15);
+      border: 1px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.7rem;
+      color: var(--color-accent);
+    }
+
+    /* Booking Form */
+    .booking-form-wrap {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 2.5rem;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+    }
+
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-cream);
+      margin: 0 0 0.5rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      margin: 0 0 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      color: var(--color-cream);
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+    }
+
+    .form-group input::placeholder {
+      color: var(--color-muted);
+      opacity: 0.5;
+    }
+
+    .form-group select option {
+      background: var(--color-bg);
+    }
+
+    .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.7) sepia(1) saturate(0.7) hue-rotate(10deg);
+      cursor: pointer;
+    }
+
+    .booking-form-wrap .btn-gold {
+      width: 100%;
+      justify-content: center;
+      font-size: 1rem;
+      padding: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 1rem;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* ATTRACTIONS */
+    /* ─────────────────────────────────────── */
+    #attractions {
+      background: var(--color-surface);
+    }
+
+    .attractions-scroll {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border) transparent;
+    }
+
+    .attraction-card {
+      background: var(--color-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      min-width: 220px;
+      transition: transform 0.3s ease, border-color 0.2s;
+    }
+
+    .attraction-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(201, 169, 110, 0.35);
+    }
+
+    .attraction-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .attraction-img img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .attraction-card:hover .attraction-img img {
+      transform: scale(1.08);
+    }
+
+    .attraction-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 26, 26, 0.7) 0%, transparent 60%);
+    }
+
+    .attraction-dist {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      z-index: 1;
+      background: var(--color-accent);
+      color: #1A1A1A;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .attraction-body {
+      padding: 1.25rem;
+    }
+
+    .attraction-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--color-cream);
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+    }
+
+    .attraction-desc {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* FAQ */
+    /* ─────────────────────────────────────── */
+    #faq {
+      background: var(--color-bg);
+    }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      cursor: pointer;
+      text-align: left;
+      color: var(--color-cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--color-accent);
+    }
+
+    .faq-item.open .faq-question {
+      color: var(--color-accent);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: var(--color-accent);
+      transition: border-color 0.2s, transform 0.3s ease, background 0.2s;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      border-color: var(--color-accent);
+      background: rgba(201, 169, 110, 0.1);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 1.5rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* FOOTER */
+    /* ─────────────────────────────────────── */
+    #footer {
+      background: var(--color-surface);
+      border-top: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .footer-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-logo {
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo img {
+      height: 60px;
+      width: auto;
+    }
+
+    .footer-desc {
+      color: var(--color-muted);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin: 0 0 1.5rem;
+      max-width: 280px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: rgba(201, 169, 110, 0.06);
+    }
+
+    .footer-col-title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: "SOFT" 100, "WONK" 1;
+      font-size: 1rem;
+      color: var(--color-cream);
+      margin: 0 0 1.25rem;
+      font-weight: 600;
+    }
+
+    .footer-contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+
+    .footer-contact-list a {
+      color: var(--color-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-list a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer-map {
+      grid-column: span 3;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      height: 260px;
+      margin-top: 1rem;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(0.6) invert(0.9) contrast(0.85);
+    }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 2rem;
+      border-top: 1px solid rgba(201, 169, 110, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      margin: 0;
+      opacity: 0.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      text-decoration: none;
+      opacity: 0.6;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--color-accent);
+    }
+
+    /* ─────────────────────────────────────── */
+    /* RESPONSIVE */
+    /* ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .trust-item:nth-child(3) {
+        border-top: 1px solid rgba(201, 169, 110, 0.1);
+        border-right: 1px solid rgba(201, 169, 110, 0.1);
+      }
+
+      .trust-item:nth-child(4) {
+        border-top: 1px solid rgba(201, 169, 110, 0.1);
+        border-right: none;
+      }
+
+      .for-who-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .booking-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .gallery-grid {
+        grid-template-rows: 260px 220px;
+      }
+
+      .attractions-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 1.25rem;
+        padding-bottom: 1rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-map {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-phone.desktop {
+        display: none;
+      }
+
+      .nav-right .btn-gold {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .for-who-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px 220px 220px 220px 220px 220px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 1;
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .attractions-scroll {
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        scroll-snap-type: x mandatory;
+      }
+
+      .attraction-card {
+        min-width: 240px;
+        scroll-snap-align: start;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: span 1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-map {
+        grid-column: span 1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .section-wrapper {
+        padding: 4rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .booking-form-wrap {
+        padding: 1.75rem 1.25rem;
+      }
+    }
+
+    /* ─────────────────────────────────────── */
+    /* SCROLL ANIMATIONS */
+    /* ─────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    .fade-up:nth-child(3) {
+      transition-delay: 0.2s;
+    }
+
+    .fade-up:nth-child(4) {
+      transition-delay: 0.3s;
+    }
+
+    .fade-up:nth-child(5) {
+      transition-delay: 0.4s;
+    }
+
+    /* ─────────────────────────────────────── */
+    /* PACKAGES */
+    /* ─────────────────────────────────────── */
+    #packages {
+      background: var(--color-surface);
+      padding-bottom: 4rem;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .package-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease;
+    }
+
+    .package-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--color-accent);
+    }
+
+    .package-img-wrap {
+      position: relative;
+      height: 220px;
+    }
+
+    .package-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .package-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-accent);
+      color: #1A1A1A;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.4rem 0.8rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .package-body {
+      padding: 2rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .package-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-cream);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .package-desc {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      height: 3.2rem;
+      overflow: hidden;
+    }
+
+    .package-divider {
+      height: 1px;
+      background: rgba(201, 169, 110, 0.15);
+      margin-bottom: 1.5rem;
+    }
+
+    .package-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .package-bullets li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-cream);
+    }
+
+    .package-bullets li svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    .package-min-stay {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-muted);
+      margin-top: auto;
+      margin-bottom: 1.25rem;
+    }
+
+    .package-min-stay svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .package-cta {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    /* Property Info Strip */
+    .property-info-strip {
+      background: rgba(25, 41, 25, 0.6);
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+      margin-top: 4rem;
+      padding: 1.5rem 0;
+    }
+
+    .info-strip-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .info-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.8);
+      font-weight: 500;
+    }
+
+    .info-strip-item span:first-child {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-strip-grid {
+        gap: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- NAVBAR -->
+  <!-- ═══════════════════════════════════ -->
+  <nav id="navbar" aria-label="Główna nawigacja">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a href="#" class="nav-logo" aria-label="Domki na Luzie - strona główna">
+        <img src="logotyp domki na luzie.png" alt="Domki na Luzie" />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#packages">Oferta</a></li>
+        <li><a href="#amenities">Udogodnienia</a></li>
+        <li><a href="#reviews">Opinie</a></li>
+        <li><a href="#booking">Kontakt</a></li>
+        <li><a href="#attractions">Atrakcje</a></li>
+      </ul>
+
+      <!-- Right side -->
+      <div class="nav-right">
+        <a href="tel:+48605744722" class="nav-phone desktop" aria-label="Zadzwoń do nas">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          605 744 722
+        </a>
+        <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold" target="_blank" rel="noopener"
+          id="nav-cta">
+          Zarezerwuj →
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Otwórz menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobilne">
+    <a href="#gallery" class="mobile-nav-link">Galeria</a>
+    <a href="#packages" class="mobile-nav-link">Oferta</a>
+    <a href="#amenities" class="mobile-nav-link">Udogodnienia</a>
+    <a href="#reviews" class="mobile-nav-link">Opinie</a>
+    <a href="#booking" class="mobile-nav-link">Kontakt</a>
+    <a href="#attractions" class="mobile-nav-link">Atrakcje</a>
+    <a href="tel:+48605744722"
+      style="color: var(--color-accent); font-size: 1.1rem; font-family: 'DM Sans', sans-serif; margin-top: 1rem; display: flex; align-items: center; gap: 8px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+      </svg>
+      605 744 722
+    </a>
+    <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold" target="_blank" rel="noopener">
+      Zarezerwuj teraz
+    </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="hero" aria-label="Sekcja główna — Hero">
+    <!-- Slideshow Background -->
+    <div id="hero-slides" class="hero-slides">
+      <div class="hero-slide active"
+        style="background-image: url('https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/ac90ca2f-23e2-4a89-ae5a-199ac67a522d.jpeg');">
+      </div>
+      <div class="hero-slide"
+        style="background-image: url('https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/c8138b6a-7f38-476f-ab32-b3568e26283b.jpg');">
+      </div>
+      <div class="hero-slide"
+        style="background-image: url('https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/74b7135d-e001-40e1-8815-fd5274defa45.jpeg');">
+      </div>
+      <div class="hero-slide"
+        style="background-image: url('https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/def6fce9-860e-4960-8dc2-1a30750c6bb6.jpeg');">
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-tint"></div>
+
+    <div class="hero-content">
+      <p class="section-label">Beskidy · Małopolska</p>
+
+      <h1>
+        Odetnij się od wszystkiego.<br />
+        <span>Góry, jacuzzi, cisza.</span>
+      </h1>
+      <p class="hero-subtitle">
+        Prywatne domki premium w Beskidach — między Krakowem a Zakopanem.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold" target="_blank" rel="noopener"
+          id="hero-cta-main" style="font-size: 1.05rem; padding: 1rem 2.25rem;">
+          Sprawdź wolne terminy
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="tel:+48605744722" class="hero-phone" id="hero-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+          +48 605 744 722
+        </a>
+      </div>
+
+      <!-- Hero Trust Badge -->
+      <div class="hero-trust-badge">
+        <div class="trust-badge-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              fill="#4285F4" />
+            <path
+              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              fill="#34A853" />
+            <path
+              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+              fill="#FBBC05" />
+            <path
+              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+              fill="#EA4335" />
+          </svg>
+          <span>Google <span class="trust-badge-score">4.9/5</span></span>
+        </div>
+        <div class="trust-badge-divider"></div>
+        <div class="trust-badge-item">
+          <img src="logo booking.png" alt="Booking.com" class="platform-icon" style="height: 14px;" />
+          <span>Booking <span class="trust-badge-score">9.6/10</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Odkryj</span>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TRUST BAR -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="trust-bar" aria-label="Kluczowe informacje">
+    <div class="trust-grid">
+      <div class="trust-item fade-up">
+        <div class="trust-icon" style="color: var(--color-accent);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+            </polygon>
+          </svg>
+        </div>
+        <div class="trust-value">9.6/10</div>
+        <div class="trust-label">Booking.com</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon" style="color: var(--color-accent);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+          </svg>
+        </div>
+        <div class="trust-value">1 km</div>
+        <div class="trust-label">od stoku narciarskiego</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon" style="color: var(--color-accent);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
+            <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
+            <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path>
+          </svg>
+        </div>
+        <div class="trust-value">Basen &amp; Jacuzzi</div>
+        <div class="trust-label">wliczone w cenę</div>
+      </div>
+      <div class="trust-item fade-up">
+        <div class="trust-icon" style="color: var(--color-accent);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div class="trust-value">Ogrodzony</div>
+        <div class="trust-label">prywatny teren</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- GALLERY -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="gallery" aria-label="Galeria domków">
+    <div class="section-wrapper">
+      <div class="section-header">
+        <p class="section-label">Galeria</p>
+        <h2 class="gallery-heading">
+          40m² prywatności.<br />Basen. Jacuzzi.<br />
+          <em style="color: var(--color-accent);">Widok który zatrzymuje czas.</em>
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Image 1: Main View (Wide) -->
+        <div class="gallery-item wide">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/318c9337-3c12-4a4c-b41f-07b01eb79e8f.jpg">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/318c9337-3c12-4a4c-b41f-07b01eb79e8f.jpg"
+              alt="Widok na domki premium Beskidy" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 2: Interior -->
+        <div class="gallery-item">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/7c26bbe2-4624-4099-b01e-65567437f6f7.png">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/7c26bbe2-4624-4099-b01e-65567437f6f7.png" 
+              alt="Przytulne wnętrze salonu z kominkiem" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 3: View -->
+        <div class="gallery-item">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/cedaed6c-6dc2-41c7-9608-71ed11519d2b.png">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/cedaed6c-6dc2-41c7-9608-71ed11519d2b.png" 
+              alt="Widok z tarasu na góry i las" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 4: Amenity (Tall) -->
+        <div class="gallery-item tall">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/7d079bb0-10c8-4247-8d68-9043a757302e.png">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/7d079bb0-10c8-4247-8d68-9043a757302e.png" 
+              alt="Relaks w jacuzzi pod gwiazdami" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 5: Bedroom -->
+        <div class="gallery-item">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/58a714b0-8f0c-4556-a355-f09f5d80bcf8.png">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/58a714b0-8f0c-4556-a355-f09f5d80bcf8.png" 
+              alt="Komfortowa sypialnia premium" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 6: Bathroom -->
+        <div class="gallery-item">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/5246c6d7-cc6e-4d4c-ba1a-50bf0fe742b3.png">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/5246c6d7-cc6e-4d4c-ba1a-50bf0fe742b3.png" 
+              alt="Nowoczesna łazienka w domku" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 7: Aerial -->
+        <div class="gallery-item wide">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/ac90ca2f-23e2-4a89-ae5a-199ac67a522d.jpeg">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/ac90ca2f-23e2-4a89-ae5a-199ac67a522d.jpeg" 
+              alt="Widok z lotu ptaka na naszą osadę" loading="lazy" />
+          </a>
+        </div>
+        <!-- Image 8: Twilight -->
+        <div class="gallery-item">
+          <a data-fslightbox="gallery" href="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/74b7135d-e001-40e1-8815-fd5274defa45.jpeg">
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/74b7135d-e001-40e1-8815-fd5274defa45.jpeg" 
+              alt="Domki wieczorową porą" loading="lazy" />
+          </a>
+        </div>
+      </div>
+
+      <div class="gallery-cta">
+        <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-outline" target="_blank" rel="noopener"
+          id="gallery-cta">
+          Sprawdź dostępność →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FOR WHO -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- ═══════════════════════════════════ -->
+  <!-- PACKAGES -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="packages" aria-label="Pakiety pobytowe">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">Wybierz swój pobyt</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Wybierz swój pobyt
+        </h2>
+        <p style="color: var(--color-muted); max-width: 600px; margin: 1rem auto 0; font-size: 0.95rem;">
+          Każdy pakiet zawiera basen i jacuzzi w cenie. Rezerwujesz bezpośrednio — zero prowizji.
+        </p>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="package-grid">
+        <!-- Card 1: Premium -->
+        <div class="package-card fade-up">
+          <div class="package-img-wrap">
+            <div class="package-badge">NAJPOPULARNIEJSZY</div>
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/28eb82f7-6091-47bd-a4e1-f8657514743c.jpg"
+              alt="Wnętrze domku premium" loading="lazy" />
+          </div>
+          <div class="package-body">
+            <h3 class="package-title">Domki PREMIUM z basenem</h3>
+            <p class="package-desc">Klasyczny pobyt w domku premium z pełnym dostępem do basenu i jacuzzi.</p>
+            <div class="package-divider"></div>
+            <ul class="package-bullets">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Basen i jacuzzi w cenie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Prywatny taras z grilem</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Klimatyzacja i bezpłatne Wi-Fi</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Dla 2–4 osób</li>
+            </ul>
+            <div class="package-min-stay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Min. 2 noce
+            </div>
+            <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold package-cta">Zarezerwuj →</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Save -->
+        <div class="package-card fade-up">
+          <div class="package-img-wrap">
+            <div class="package-badge">OSZCZĘDZASZ</div>
+            <img src="https://us-ms.gr-cdn.com/getresponse-IqzZc/photos/74b7135d-e001-40e1-8815-fd5274defa45.jpeg"
+              alt="Widok na góry z domku" loading="lazy" />
+          </div>
+          <div class="package-body">
+            <h3 class="package-title">Im dłużej, tym taniej</h3>
+            <p class="package-desc">Zostań dłużej i zapłać mniej za dobę. Idealny na dłuższy wypoczynek w górach.</p>
+            <div class="package-divider"></div>
+            <ul class="package-bullets">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Rabat za każdą dodatkową noc</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Basen i jacuzzi w cenie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Prywatny parking gratis</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Dla 2–4 osób</li>
+            </ul>
+            <div class="package-min-stay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Min. 3 noce
+            </div>
+            <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold package-cta">Zarezerwuj →</a>
+          </div>
+        </div>
+
+        <!-- Card 3: For Couples -->
+        <div class="package-card fade-up">
+          <div class="package-img-wrap">
+            <div class="package-badge">DLA PAR</div>
+            <img src="https://us-wbe-img2.gr-cdn.com/user/da065e28-35c2-4c4d-a05f-2bb5174c17ed/171d2da5-82dc-4d18-ba09-d10da8c0b0ac.png"
+              alt="Romantyczny wieczór w górach" loading="lazy" />
+          </div>
+          <div class="package-body">
+            <h3 class="package-title">Pakiet dla Dwojga</h3>
+            <p class="package-desc">Romantyczny pobyt dla dwóch osób z voucherem na kolację w prezencie.</p>
+            <div class="package-divider"></div>
+            <ul class="package-bullets">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Voucher na kolację gratis</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Basen i jacuzzi w cenie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Śniadanie dostępne na życzenie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Tylko dla 2 osób</li>
+            </ul>
+            <div class="package-min-stay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Min. 2 noce
+            </div>
+            <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold package-cta">Zarezerwuj →</a>
+          </div>
+        </div>
+
+        <!-- Card 4: SLOW -->
+        <div class="package-card fade-up">
+          <div class="package-img-wrap">
+            <div class="package-badge">ZE ŚNIADANIEM</div>
+            <img src="https://us-wbe-img2.gr-cdn.com/user/da065e28-35c2-4c4d-a05f-2bb5174c17ed/a76ddb0e-800d-4e47-8644-c432fd82e48f.jpeg"
+              alt="Śniadanie w górach" loading="lazy" />
+          </div>
+          <div class="package-body">
+            <h3 class="package-title">Pakiet SLOW</h3>
+            <p class="package-desc">Od niedzieli do piątku ze śniadaniem dostarczonym rano. Prawdziwe zwolnienie tempa.
+            </p>
+            <div class="package-divider"></div>
+            <ul class="package-bullets">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Śniadanie dostarczone do domku</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Basen i jacuzzi w cenie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Klimatyzacja i bezpłatne Wi-Fi</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>Dla max. 2 osób</li>
+            </ul>
+            <div class="package-min-stay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Min. 2 noce
+            </div>
+            <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold package-cta">Zarezerwuj →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Info Strip -->
+      <div class="property-info-strip fade-up">
+        <div class="info-strip-grid">
+          <div class="info-strip-item">
+            <span style="color: var(--color-accent);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </span>
+            <span>3 domki na terenie obiektu</span>
+          </div>
+          <div class="info-strip-item">
+            <span style="color: var(--color-accent);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <path d="M3 9h18"></path>
+                <path d="M3 15h18"></path>
+                <path d="M9 3v18"></path>
+                <path d="M15 3v18"></path>
+              </svg>
+            </span>
+            <span>40 m² każdy domek</span>
+          </div>
+          <div class="info-strip-item">
+            <span style="color: var(--color-accent);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="22" height="13" rx="2" ry="2"></rect>
+                <path d="M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                <path d="M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                <path d="m2 9 3-5h14l3 5"></path>
+              </svg>
+            </span>
+            <span>Bezpłatny parking przy każdym domku</span>
+          </div>
+          <div class="info-strip-item">
+            <span style="color: var(--color-accent);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </span>
+            <span>Ogrodzony, prywatny teren</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA to For Who -->
+      <div style="margin-top: 3rem; text-align: center;" class="fade-up">
+        <a href="#for-who" class="btn-outline">Dla kogo są domki? →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FOR WHO -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="for-who" aria-label="Dla kogo są domki" style="background: var(--color-bg); padding-top: 4rem;">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">Indywidualny pobyt</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Dla kogo są te domki?
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="for-who-grid" style="margin-bottom: 3rem;">
+        <!-- Card 1: Pary -->
+        <div class="for-who-card fade-up">
+          <span class="for-who-icon" aria-hidden="true" style="color: var(--color-accent);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+              </path>
+            </svg>
+          </span>
+          <h3 class="for-who-title">Dla Par</h3>
+          <p class="for-who-text">
+            Prywatność, cisza i jacuzzi pod gwiazdami. Idealne miejsce na romantyczny wyjazd tylko we dwoje.
+          </p>
+        </div>
+
+        <!-- Card 2: Znajomi -->
+        <div class="for-who-card fade-up">
+          <span class="for-who-icon" aria-hidden="true" style="color: var(--color-accent);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </span>
+          <h3 class="for-who-title">Grupa Znajomych</h3>
+          <p class="for-who-text">
+            Dwa lub trzy domki blisko siebie to idealna opcja na wspólny wypad, zachowując własną przestrzeń.
+          </p>
+        </div>
+
+        <!-- Card 3: Narciarze -->
+        <div class="for-who-card fade-up">
+          <span class="for-who-icon" aria-hidden="true" style="color: var(--color-accent);">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 3 4 8 5-5 5 15H2L8 3z"></path>
+              <path d="M12 11 9 22"></path>
+              <path d="M11 13 14 22"></path>
+            </svg>
+          </span>
+          <h3 class="for-who-title">Turyści i Narciarze</h3>
+          <p class="for-who-text">
+            Stok 1 km od drzwi i liczne szlaki. Najlepsza baza wypadowa na aktywny wypoczynek w górach.
+          </p>
+        </div>
+      </div>
+
+      <div class="center fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p
+          style="color: #FF4D4D; font-size: 1.5rem; font-weight: 800; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.05em;">
+          Wizytacja w domku tylko od 12+ lat!
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; align-items: center;">
+          <a href="#amenities" class="btn-outline">Zobacz udogodnienia</a>
+          <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" target="_blank" class="btn-gold">Zarezerwuj
+            termin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- AMENITIES -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="amenities" aria-label="Udogodnienia">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">Udogodnienia</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Przyjeżdżasz tylko z walizką.<br />
+          <em style="color: var(--color-accent); font-style: italic; font-family: 'Playfair Display', serif;">
+            Resztą się zajęliśmy.
+          </em>
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="amenities-grid">
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4"></path>
+              <path d="M12 18v4"></path>
+              <path d="M4.93 4.93l2.83 2.83"></path>
+              <path d="M16.24 16.24l2.83 2.83"></path>
+              <path d="M2 12h4"></path>
+              <path d="M18 12h4"></path>
+              <path d="M4.93 19.07l2.83-2.83"></path>
+              <path d="M16.24 7.76l2.83-2.83"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Klimatyzacja</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l1 7H5l1-7Z"></path>
+              <path d="M14 22a2 2 0 0 1-2-2V10"></path>
+              <path d="M6 10v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Ekspres do kawy</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+              <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+              <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+              <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+          </div>
+          <div class="amenity-label">Bezpłatne Wi-Fi</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="22" height="18" rx="2" ry="2"></rect>
+              <path d="M7 13h10"></path>
+              <path d="M9 17h6"></path>
+              <path d="M13 7h-2"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Prywatny parking</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 14V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10"></path>
+              <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4H2v4Z"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Ręczniki i pościel</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Sejf w domku</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9"></path>
+              <path d="M18 5v5H6V5a3 3 0 0 1 6 0a3 3 0 0 1 6 0Z"></path>
+              <line x1="12" y1="13" x2="12" y2="18"></line>
+              <line x1="9" y1="10" x2="9" y2="21"></line>
+              <line x1="15" y1="10" x2="15" y2="21"></line>
+            </svg>
+          </div>
+          <div class="amenity-label">Grill na tarasie</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+          </div>
+          <div class="amenity-label">Smart TV</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 2v20"></path>
+              <path d="M20 2v20"></path>
+              <path d="M4 10h16"></path>
+              <path d="M4 14h16"></path>
+              <path d="M4 18h16"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Zmywarka</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 22 2 22"></path>
+              <path d="M2 13s3.5-3 10-3 10 3 10 3"></path>
+              <path d="M2 17s3.5-3 10-3 10 3 10 3"></path>
+              <path d="M2 21s3.5-3 10-3 10 3 10 3"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Basen sezonowy</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M7 12h10"></path>
+              <path d="M12 7v10"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Jacuzzi</div>
+        </div>
+        <div class="amenity-item fade-up">
+          <div class="amenity-icon-wrap" style="color: var(--color-accent); font-size: 1.1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 22V10l10-8 10 8v12H2Z"></path>
+              <path d="M9 22v-6c0-1.7 1.3-3 3-3s3 1.3 3 3v6"></path>
+            </svg>
+          </div>
+          <div class="amenity-label">Ogrodzony teren</div>
+        </div>
+      </div>
+
+      <div class="amenities-note">
+        ✦ Basen i jacuzzi są wliczone w cenę — bez dodatkowych opłat.
+      </div>
+
+      <!-- Mid-page CTA -->
+      <div style="text-align: center; margin-top: 3.5rem;" class="fade-up">
+        <a href="#reviews" class="btn-gold" style="padding: 1rem 2.5rem;">
+          Poznaj opinie naszych gości →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- REVIEWS -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="reviews" aria-label="Opinie gości">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">Opinie Gości</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Co mówią nasi goście
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="reviews-container">
+        <!-- Swiper -->
+        <div class="swiper swiper-reviews">
+          <div class="swiper-wrapper">
+
+            <!-- Review 1: Kasia B. (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Właśnie wróciliśmy z pobytu w domku. Był to cudowny relax w pięknym obiekcie. Przemiła obsługa,
+                  wszystko na wysokim poziomie. Smaczne śniadanie dostarczone rano. Na pewno tam wrócimy na błogie
+                  lenistwo."
+                </p>
+                <div class="review-author">
+                  <strong>Kasia B.</strong>
+                  Google · 8 miesięcy temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 2: Agata Anna Majewska (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Wspaniała lokalizacja — cicho, spokojnie. Do dyspozycji piękne, nowocześnie urządzone domki, duży
+                  podgrzewany basen, fantastyczne jacuzzi oraz grill. Właściciele bardzo mili."
+                </p>
+                <div class="review-author">
+                  <strong>Agata Anna Majewska</strong>
+                  Google · 7 miesięcy temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 3: Daniel (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon">
+                  <img src="logo booking.png" alt="Booking.com" style="height: 14px;" />
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Mega wypoczynek dzięki pięknemu domkowi z basenem oraz jacuzzi. Idealnie dobrane rzeczy do siebie —
+                  domek, basen i jacuzzi."
+                </p>
+                <div class="review-author">
+                  <strong>Daniel</strong>
+                  Booking.com · Sierpień 2025
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4: Aneta Świszcz (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Domki na żywo są jeszcze ładniejsze niż na zdjęciach! Cudownie spędzony weekend — miejsce naprawdę
+                  godne polecenia! Nie ma się do czego przyczepić."
+                </p>
+                <div class="review-author">
+                  <strong>Aneta Świszcz</strong>
+                  Google · 9 miesięcy temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 5: Gosia (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon">
+                  <img src="logo booking.png" alt="Booking.com" style="height: 14px;" />
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Cudowne miejsce ❤️ Zdecydowanie polecam — jeden z najlepszych domków w jakim spędziliśmy pobyt.
+                  Jacuzzi oraz basen robią robotę."
+                </p>
+                <div class="review-author">
+                  <strong>Gosia</strong>
+                  Booking.com · Lipiec 2025
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 6: Tajemnicza Etna (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Miejsce godne polecenia. Basen i profesjonalne jacuzzi sprawiają, że wyjeżdżasz zrelaksowany.
+                  Ogromnym plusem jest przeznaczenie miejsca dla osób 12+."
+                </p>
+                <div class="review-author">
+                  <strong>Tajemnicza Etna</strong>
+                  Google · Rok temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 7: Hanna (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon">
+                  <img src="logo booking.png" alt="Booking.com" style="height: 14px;" />
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Nowy, piękny i zadbany domek — w środku czysto, wszystko odpowiednio przygotowane. Basen i jacuzzi do
+                  korzystania dla gości — cudowne!"
+                </p>
+                <div class="review-author">
+                  <strong>Hanna</strong>
+                  Booking.com · Sierpień 2025
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 8: Łukasz Banaś (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Bardzo fajne miejsce na wypoczynek. Domek bardzo dobrze wyposażony, mili właściciele. Całość dopełnia
+                  duże jacuzzi i elegancki basen."
+                </p>
+                <div class="review-author">
+                  <strong>Łukasz Banaś</strong>
+                  Google · 10 miesięcy temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 9: Vlada (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon">
+                  <img src="logo booking.png" alt="Booking.com" style="height: 14px;" />
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Super miejsce! Bardzo mili właściciele, wszystko nowiutkie, bardzo przyjemnie spędzony czas. Na
+                  terenie basen i jacuzzi. Z chęcią wrócimy!"
+                </p>
+                <div class="review-author">
+                  <strong>Vlada</strong>
+                  Booking.com · Lipiec 2024
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 10: Justyna Rusnak (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Super miejscówka na wypad towarzyski! Domki pięknie wykonane, basen podgrzewany, każdy z domków ma
+                  grilla. Polecam gorąco!"
+                </p>
+                <div class="review-author">
+                  <strong>Justyna Rusnak</strong>
+                  Google · Rok temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 11: Anna (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-booking);">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2.5 2h19c.28 0 .5.22.5.5v19c0 .28-.22.5-.5.5h-19a.5.5 0 0 1-.5-.5v-19c0-.28.22-.5.5-.5z"
+                      fill="#003580" />
+                    <path
+                      d="M11.64 12.35c.18-.08.31-.15.4-.2s.22-.16.4-.33c.18-.17.32-.34.42-.5s.15-.31.15-.45c0-.1-.03-.2-.09-.28a.48.48 0 0 0-.25-.19.9.9 0 0 0-.39-.08 1.48 1.48 0 0 0-.5.08c-.16.05-.33.15-.49.3L11.04 10a2.31 2.31 0 0 1 .71-.56 2.03 2.03 0 0 1 .86-.18 2.06 2.06 0 0 1 .76.13c.22.09.4.22.53.39s.2.37.2.59c0 .2-.06.4-.18.59a2.53 2.53 0 0 1-.41.48c-.15.14-.3.26-.45.38s-.36.27-.6.44l.87.01h.97v.8h-3.17v-.73zm4.56 1.45c.24 0 .45-.05.65-.16s.36-.26.47-.46c.11-.2.17-.43.17-.69 0-.29-.07-.53-.2-.73s-.3-.35-.53-.45c.2-.1.35-.24.47-.41s.17-.37.17-.59c0-.24-.06-.46-.17-.64a1.27 1.27 0 0 0-.46-.43c-.2-.11-.42-.17-.66-.17a1.44 1.44 0 0 0-.69.17 1.1 1.1 0 0 0-.44.47c-.1.2-.16.43-.16.7l.86.01c0-.18.04-.32.12-.41a.39.39 0 0 1 .31-.14c.12 0 .22.04.3.12s.12.2.12.35c0 .16-.05.3-.14.4s-.23.16-.41.16l-.28.01v.68l.3.01c.21 0 .37.06.47.18s.16.27.16.46c0 .18-.05.32-.15.42s-.23.15-.39.15a.44.44 0 0 1-.35-.15c-.09-.1-.13-.25-.13-.46l-.86.01c0 .32.06.58.19.78s.32.35.56.46c.24.1.5.15.79.15zM4.14 7.23h1.49l2.4 4.8 2.4-4.8h1.49v6.52h-1.12v-5.26l-2.4 4.8h-.74l-2.4-4.8v5.26H4.14V7.23z"
+                      fill="#fff" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Domek pięknie urządzony, ze smakiem i dopracowany w każdym detalu. Jacuzzi to wisienka na torcie.
+                  Gorąco polecam — na pewno wrócę."
+                </p>
+                <div class="review-author">
+                  <strong>Anna</strong>
+                  Booking.com · Kwiecień 2024
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 12: Arek Kulejewski (Google) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-google);">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4" />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853" />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                      fill="#FBBC05" />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „SUPER miejsce, bardzo mili właściciele, cudownie spędzony tydzień. Domek SUPER — wszystko co powinno
+                  być, jest."
+                </p>
+                <div class="review-author">
+                  <strong>Arek Kulejewski</strong>
+                  Google · 7 miesięcy temu
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 13: Carpediem (Booking) -->
+            <div class="swiper-slide">
+              <div class="review-card">
+                <div class="review-platform-icon" style="color: var(--color-booking);">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2.5 2h19c.28 0 .5.22.5.5v19c0 .28-.22.5-.5.5h-19a.5.5 0 0 1-.5-.5v-19c0-.28.22-.5.5-.5z"
+                      fill="#003580" />
+                    <path
+                      d="M11.64 12.35c.18-.08.31-.15.4-.2s.22-.16.4-.33c.18-.17.32-.34.42-.5s.15-.31.15-.45c0-.1-.03-.2-.09-.28a.48.48 0 0 0-.25-.19.9.9 0 0 0-.39-.08 1.48 1.48 0 0 0-.5.08c-.16.05-.33.15-.49.3L11.04 10a2.31 2.31 0 0 1 .71-.56 2.03 2.03 0 0 1 .86-.18 2.06 2.06 0 0 1 .76.13c.22.09.4.22.53.39s.2.37.2.59c0 .2-.06.4-.18.59a2.53 2.53 0 0 1-.41.48c-.15.14-.3.26-.45.38s-.36.27-.6.44l.87.01h.97v.8h-3.17v-.73zm4.56 1.45c.24 0 .45-.05.65-.16s.36-.26.47-.46c.11-.2.17-.43.17-.69 0-.29-.07-.53-.2-.73s-.3-.35-.53-.45c.2-.1.35-.24.47-.41s.17-.37.17-.59c0-.24-.06-.46-.17-.64a1.27 1.27 0 0 0-.46-.43c-.2-.11-.42-.17-.66-.17a1.44 1.44 0 0 0-.69.17 1.1 1.1 0 0 0-.44.47c-.1.2-.16.43-.16.7l.86.01c0-.18.04-.32.12-.41a.39.39 0 0 1 .31-.14c.12 0 .22.04.3.12s.12.2.12.35c0 .16-.05.3-.14.4s-.23.16-.41.16l-.28.01v.68l.3.01c.21 0 .37.06.47.18s.16.27.16.46c0 .18-.05.32-.15.42s-.23.15-.39.15a.44.44 0 0 1-.35-.15c-.09-.1-.13-.25-.13-.46l-.86.01c0 .32.06.58.19.78s.32.35.56.46c.24.1.5.15.79.15zM4.14 7.23h1.49l2.4 4.8 2.4-4.8h1.49v6.52h-1.12v-5.26l-2.4 4.8h-.74l-2.4-4.8v5.26H4.14V7.23z"
+                      fill="#fff" />
+                  </svg>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                  „Pełen komfort i prywatność. Jacuzzi tworzy niesamowity klimat. Najlepsze miejsce w jakim byliśmy — na
+                  pewno wrócimy na dłużej!"
+                </p>
+                <div class="review-author">
+                  <strong>Carpediem</strong>
+                  Booking.com · Kwiecień 2024
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Pagination & Navigation -->
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="reviews-trust-row fade-up" style="animation-delay: 0.6s; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; justify-content: center;">
+          <div class="trust-badge-footer">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                fill="#4285F4" />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853" />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                fill="#FBBC05" />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335" />
+            </svg>
+            Google <span>4.9/5</span>
+          </div>
+          <div class="trust-badge-footer">
+            <img src="logo booking.png" alt="Booking.com" style="height: 14px;" />
+            Booking <span>9.6/10</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; align-items: center;">
+          <a href="https://www.google.com/search?q=Domki+na+Luzie+opinie" target="_blank" class="btn-outline">
+            Sprawdź opinie →
+          </a>
+          <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" target="_blank" class="btn-gold">
+            Zarezerwuj pobyt
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- BOOKING / RESERVATION -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="booking" aria-label="Kontakt">
+    <div class="section-wrapper">
+      <div class="booking-layout">
+        <!-- Left: Arguments -->
+        <div>
+          <p class="section-label">Skontaktuj się z nami</p>
+          <h2 class="booking-heading">
+            Masz pytania?<br />
+            <span style="color: var(--color-accent);">Napisz lub zadzwoń.</span>
+          </h2>
+          <div class="gold-line"></div>
+
+          <ul class="booking-benefits">
+            <li>
+              <div class="check-icon" aria-hidden="true" style="width:20px; height:20px; display:flex; align-items:center; justify-content:center; color: var(--color-accent);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>Gwarancja najniższej ceny — <strong>bez prowizji</strong></div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true" style="width:20px; height:20px; display:flex; align-items:center; justify-content:center; color: var(--color-accent);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>Szybka odpowiedź i pomoc w rezerwacji</div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true" style="width:20px; height:20px; display:flex; align-items:center; justify-content:center; color: var(--color-accent);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>Zadzwoń do nas: <a href="tel:+48605744722"
+                  style="color: var(--color-accent); text-decoration: none; font-weight: 600;">605 744 722</a></div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true" style="width:20px; height:20px; display:flex; align-items:center; justify-content:center; color: var(--color-accent);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <div>Obiekt przyjazny osobom 12+</div>
+            </li>
+          </ul>
+
+          <!-- Packages list -->
+          <div style="border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden;">
+            <div
+              style="padding: 0.75rem 1.25rem; background: var(--color-surface2); border-bottom: 1px solid var(--color-border);">
+              <span
+                style="font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); font-weight: 600;">Dostępne
+                pakiety</span>
+            </div>
+            <div style="padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: center;">
+                <span style="color: var(--color-cream); display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="color: var(--color-accent); flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </span>
+                  Domki PREMIUM z basenem
+                </span>
+                <span style="color: var(--color-muted); font-size: 0.78rem;">min. 2 noce</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: center;">
+                <span style="color: var(--color-cream); display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="color: var(--color-accent); flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                      </path>
+                    </svg>
+                  </span>
+                  Pakiet dla Dwojga + voucher
+                </span>
+                <span style="color: var(--color-muted); font-size: 0.78rem;">min. 2 noce</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: center;">
+                <span style="color: var(--color-cream); display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="color: var(--color-accent); flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path
+                        d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
+                      </path>
+                    </svg>
+                  </span>
+                  Pakiet SLOW (pon–pt)
+                </span>
+                <span style="color: var(--color-muted); font-size: 0.78rem;">ze śniadaniem</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: center;">
+                <span style="color: var(--color-cream); display: flex; align-items: center; gap: 0.6rem;">
+                  <span style="color: var(--color-accent); flex-shrink: 0;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2v20"></path>
+                      <path d="m17 5-5-3-5 3"></path>
+                      <path d="m17 19-5 3-5-3"></path>
+                      <path d="M2 12h20"></path>
+                    </svg>
+                  </span>
+                  Im dłużej, tym taniej
+                </span>
+                <span style="color: var(--color-muted); font-size: 0.78rem;">od 3 nocy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="booking-form-wrap">
+          <h3 class="form-title">Formularz kontaktowy</h3>
+          <p class="form-subtitle">Zapytaj o wolny termin lub prześlij wiadomość</p>
+
+          <form id="booking-form" onsubmit="handleFormSubmit(event)" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Imię i Nazwisko</label>
+                <input type="text" id="name" name="name" placeholder="Twoje imię" required aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" placeholder="+48 xxx xxx xxx" required aria-required="true" />
+              </div>
+              <div class="form-group full">
+                <label for="subject">Temat zapytania</label>
+                <input type="text" id="subject" name="subject" placeholder="Np. Pytanie o wolny termin" required
+                  aria-required="true" />
+              </div>
+              <div class="form-group full">
+                <label for="message">Twoje zapytanie</label>
+                <textarea id="message" name="message" rows="4" placeholder="W czym możemy pomóc?" required
+                  aria-required="true"
+                  style="width: 100%; padding: 0.75rem; border-radius: 4px; border: 1px solid var(--color-border); background: var(--color-surface); color: var(--color-cream); font-family: inherit; font-size: 0.9rem;"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-gold" id="form-submit-btn">
+              Wyślij wiadomość
+            </button>
+            <p class="form-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline; vertical-align:text-bottom; margin-right:4px; color: var(--color-accent);">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Rezerwujesz bezpośrednio u właściciela. Zero prowizji dla portali.
+            </p>
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" style="display: none; text-align: center; padding: 2rem 0;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-accent);">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto;">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <h4
+              style="color: var(--color-cream); font-family: 'Fraunces', serif; font-size: 1.25rem; margin: 0 0 0.75rem;">
+              Zapytanie wysłane!
+            </h4>
+            <p style="color: var(--color-muted); font-size: 0.875rem; margin: 0 0 1.5rem;">
+              Odezwiemy się w ciągu kilku godzin. Możesz też zadzwonić bezpośrednio:
+            </p>
+            <a href="tel:+48605744722" class="btn-gold" style="display: inline-flex; align-items:center; gap: 8px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
+              605 744 722
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- ATTRACTIONS -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="attractions" aria-label="Atrakcje w okolicy">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">Atrakcje w Okolicy</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Góry za oknem, termy za rogiem,<br />
+          <em style="color: var(--color-accent); font-style: italic; font-family: 'Playfair Display', serif;">
+            stok w zasięgu spaceru.
+          </em>
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="attractions-scroll">
+        <!-- Attraction 1: Stok -->
+        <div class="attraction-card">
+          <div class="attraction-img">
+            <img src="atrakcje zdjęcia/spytkowice.png" alt="Stok narciarski Kompleks Beskid" loading="lazy" />
+            <div class="attraction-dist">1 km</div>
+          </div>
+          <div class="attraction-body">
+            <h3 class="attraction-title">Stok narciarski Kompleks Beskid</h3>
+            <p class="attraction-desc">Trasy dla każdego poziomu, wyciąg narciarski tuż za progiem domku.</p>
+          </div>
+        </div>
+
+        <!-- Attraction 2: Ośrodek jeździecki -->
+        <div class="attraction-card">
+          <div class="attraction-img">
+            <img src="atrakcje zdjęcia/konie.png" alt="Ośrodek jeździecki" loading="lazy" />
+            <div class="attraction-dist">500 m</div>
+          </div>
+          <div class="attraction-body">
+            <h3 class="attraction-title">Ośrodek Jeździecki</h3>
+            <p class="attraction-desc">Jazda konna dla początkujących i zaawansowanych, tuż za osiedlem.</p>
+          </div>
+        </div>
+
+        <!-- Attraction 3: Park Zdrojowy -->
+        <div class="attraction-card">
+          <div class="attraction-img">
+            <img src="atrakcje zdjęcia/park rabka.png" alt="Park Zdrojowy Rabka-Zdrój" loading="lazy" />
+            <div class="attraction-dist">~10 min</div>
+          </div>
+          <div class="attraction-body">
+            <h3 class="attraction-title">Park Zdrojowy Rabka-Zdrój</h3>
+            <p class="attraction-desc">Uzdrowiskowy park z alejkami, tężnią i infrastrukturą wypoczynkową.</p>
+          </div>
+        </div>
+
+        <!-- Attraction 4: Termy -->
+        <div class="attraction-card">
+          <div class="attraction-img">
+            <img src="atrakcje zdjęcia/termy.png" alt="Termy Gorący Potok" loading="lazy" />
+            <div class="attraction-dist">~20 min</div>
+          </div>
+          <div class="attraction-body">
+            <h3 class="attraction-title">Termy Gorący Potok</h3>
+            <p class="attraction-desc">Kompleks basenów termalnych z atrakcjami wodnymi dla całej rodziny.</p>
+          </div>
+        </div>
+
+        <!-- Attraction 5: Zakopane -->
+        <div class="attraction-card">
+          <div class="attraction-img">
+            <img src="atrakcje zdjęcia/zakopane.png" alt="Zakopane — stolica polskich Tatr" loading="lazy" />
+            <div class="attraction-dist">~30 min</div>
+          </div>
+          <div class="attraction-body">
+            <h3 class="attraction-title">Zakopane</h3>
+            <p class="attraction-desc">Krupówki, Gubałówka i szlaki tatrzańskie — stolica polskich gór.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FAQ -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="faq" aria-label="Często zadawane pytania">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">FAQ</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Najczęściej zadawane pytania
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="faq-list" role="list">
+
+        <!-- FAQ Item 1 (open by default) -->
+        <div class="faq-item open" role="listitem">
+          <button class="faq-question" aria-expanded="true" id="faq-q1" aria-controls="faq-a1">
+            Czy basen i jacuzzi są dodatkowo płatne?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">
+            <div class="faq-answer-inner">
+              Nie — basen i jacuzzi są wliczone w cenę pobytu. Bez żadnych dodatkowych opłat.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q2" aria-controls="faq-a2">
+            Czy można przyjechać ze zwierzętami?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">
+            <div class="faq-answer-inner">
+              Przyjmujemy małe psy do 4–5 kg. Prosimy o wcześniejsze poinformowanie przy rezerwacji.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q3" aria-controls="faq-a3">
+            Czy obiekt jest odpowiedni dla dzieci?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">
+            <div class="faq-answer-inner">
+              Obiekt przeznaczony jest dla dorosłych i dzieci powyżej 12 roku życia.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q4" aria-controls="faq-a4">
+            Czy na miejscu jest parking?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4">
+            <div class="faq-answer-inner">
+              Tak — bezpłatne miejsce parkingowe przy każdym domku.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q5" aria-controls="faq-a5">
+            Czy trzeba wpłacić zaliczkę?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5">
+            <div class="faq-answer-inner">
+              Tak, pobieramy 30% zadatku przy rezerwacji. Zadatek jest bezzwrotny, ale dopuszczamy jednorazową zmianę
+              terminu w wyjątkowych sytuacjach.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mid-page CTA -->
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold" target="_blank" rel="noopener"
+          id="faq-cta" style="font-size: 1rem; padding: 1rem 2.5rem;">
+          Zarezerwuj teraz →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════ -->
+  <footer id="footer" aria-label="Stopka strony">
+    <div class="footer-grid">
+      <!-- Col 1: Logo + opis -->
+      <div>
+        <div class="footer-logo">
+          <img src="logotyp domki na luzie.png" alt="Domki na Luzie Logo"
+            style="height: 60px; filter: brightness(1.1);" />
+        </div>
+        <p class="footer-desc">
+          Prywatne domki premium z basenem i jacuzzi w sercu Beskidów. Między Krakowem a Zakopanem. Rezerwuj
+          bezpośrednio.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61550240939110" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook Domki na Luzie">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/domki_na_luzie/" class="social-link" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram Domki na Luzie">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@domki.na.luzie" class="social-link" target="_blank" rel="noopener noreferrer"
+            aria-label="TikTok Domki na Luzie">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.517-.444-5.289-1.48V18a6 6 0 0 1-6 6 6 6 0 0 1-6-6 6 6 0 0 1 6-6c.356 0 .705.032 1.045.094V12.48c-.334-.047-.68-.08-1.045-.08A8 8 0 1 0 9 18V0z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Kontakt -->
+      <div>
+        <h3 class="footer-col-title">Kontakt</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span>Spytkowice 103<br />34-745 Spytkowice</span>
+          </li>
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </span>
+            <a href="tel:+48605744722">+48 605 744 722</a>
+          </li>
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <a href="mailto:rezerwacja@domkinaluzie.pl">rezerwacja@domkinaluzie.pl</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Booking + Info -->
+      <div>
+        <h3 class="footer-col-title">Rezerwacja</h3>
+        <ul class="footer-contact-list">
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+            <span>Check-in: od 15:00</span>
+          </li>
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </span>
+            <span>Check-out: do 11:00</span>
+          </li>
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 10 2 22h16L10 10Z"></path>
+                <path d="m14 14 3 4h-3v-4Z"></path>
+                <path d="M10 10H4"></path>
+              </svg>
+            </span>
+            <span>Min. pobyt: 2 noce</span>
+          </li>
+          <li>
+            <span style="color: var(--color-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </span>
+            <span>Do 4 osób / domek</span>
+          </li>
+        </ul>
+        <div style="margin-top: 1.5rem;">
+          <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" class="btn-gold" target="_blank" rel="noopener"
+            style="font-size: 0.875rem; padding: 0.75rem 1.5rem;">
+            Sprawdź terminy →
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="footer-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2584.5234867890!2d19.7183!3d49.6234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715e4be7f8b5c0f%3A0x123456789!2sSpytkowice+103%2C+34-745+Spytkowice!5e0!3m2!1spl!2spl!4v1700000000000"
+          title="Mapa lokalizacji Domki na Luzie — Spytkowice 103" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Domki na Luzie · Spytkowice 103, 34-745 · Wszelkie prawa zastrzeżone</p>
+      <div class="footer-links">
+        <a href="https://drive.google.com/drive/folders/1Luivqd5s8YrBV3iJqhRgnfRebqIk2Gzl" target="_blank"
+          rel="noopener noreferrer">Regulamin</a>
+        <a href="https://drive.google.com/file/d/1fmw-BGKrKFO6o4lZeZ4Kqm4-PTDVw1Ph/view" target="_blank"
+          rel="noopener noreferrer">Polityka prywatności</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- JAVASCRIPT -->
+  <!-- ═══════════════════════════════════ -->
+  <script>
+    // ── Navbar scroll behavior ──
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.getElementById('hero');
+
+    function updateNavbar() {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+
+    // ── Hero bg animation ──
+    const heroSlidesWrap = document.getElementById('hero-slides');
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    setTimeout(() => heroSlidesWrap.classList.add('loaded'), 100);
+
+    function nextSlide() {
+      heroSlides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 5000); // Change image every 5 seconds
+
+    // ── Mobile hamburger menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ── FAQ Accordion ──
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Scroll reveal (Intersection Observer) ──
+    const fadeItems = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    fadeItems.forEach(item => observer.observe(item));
+
+    // ── Form: set today as min date ──
+    const today = new Date().toISOString().split('T')[0];
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+    if (checkinInput) {
+      checkinInput.min = today;
+      checkinInput.addEventListener('change', () => {
+        checkoutInput.min = checkinInput.value;
+        if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
+          checkoutInput.value = '';
+        }
+      });
+    }
+
+    // ── Form submit (demo — redirect to Hotres) ──
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('booking-form');
+      const success = document.getElementById('form-success');
+
+      // Basic validation visual feedback
+      const inputs = form.querySelectorAll('input[required], select[required]');
+      let valid = true;
+      inputs.forEach(input => {
+        if (!input.value) {
+          input.style.borderColor = 'rgba(220,80,80,0.6)';
+          valid = false;
+        } else {
+          input.style.borderColor = '';
+        }
+      });
+
+      if (!valid) return;
+
+      // Show success state
+      form.style.display = 'none';
+      success.style.display = 'block';
+
+      // In production: redirect to Hotres
+      // window.open('https://panel.hotres.pl/v4_step1?oid=4151&lang=pl', '_blank');
+    }
+
+    // ── Smooth scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const navHeight = navbar.offsetHeight;
+          const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ── Swiper.js Initialization ──
+    const reviewSwiper = new Swiper('.swiper-reviews', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 24,
+      grabCursor: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
