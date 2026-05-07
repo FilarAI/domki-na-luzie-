@@ -18,11 +18,20 @@
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
-  <!-- Swiper.js CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Security meta tags -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Tailwind CDN -->
+  <!-- Swiper.js CDN — SRI integrity hash locks the exact file version -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    integrity="sha384-gAPqlBuTCdtVcYt9ocMOYWrnBZ4XSL6q+4eXqwNycOr4iFczhNKtnYhF3NEXJM51"
+    crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    integrity="sha384-2UI1PfnXFjVMQ7/ZDEF70CR943oH3v6uZrFQGGqJYlvhh4g6z6uVktxYbOlAczav"
+    crossorigin="anonymous"></script>
+
+  <!-- Tailwind CDN — Play CDN is dynamic and does not support SRI; used for prototyping only -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -4033,16 +4042,16 @@
             <div class="form-grid">
               <div class="form-group">
                 <label for="name">Imię i Nazwisko</label>
-                <input type="text" id="name" name="name" placeholder="Twoje imię" required aria-required="true" />
+                <input type="text" id="name" name="name" placeholder="Twoje imię" required aria-required="true" autocomplete="name" maxlength="100" />
               </div>
               <div class="form-group">
                 <label for="phone">Telefon</label>
-                <input type="tel" id="phone" name="phone" placeholder="+48 xxx xxx xxx" required aria-required="true" />
+                <input type="tel" id="phone" name="phone" placeholder="+48 xxx xxx xxx" required aria-required="true" autocomplete="tel" maxlength="20" />
               </div>
               <div class="form-group full">
                 <label for="subject">Temat zapytania</label>
                 <input type="text" id="subject" name="subject" placeholder="Np. Pytanie o wolny termin" required
-                  aria-required="true" />
+                  aria-required="true" maxlength="200" />
               </div>
               <div class="form-group full">
                 <label for="message">Twoje zapytanie</label>
@@ -4715,24 +4724,53 @@
     }
 
     // ── Form submit (demo - redirect to Hotres) ──
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     function handleFormSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('booking-form');
       const success = document.getElementById('form-success');
 
-      // Basic validation visual feedback
-      const inputs = form.querySelectorAll('input[required], select[required]');
+      const nameInput    = document.getElementById('name');
+      const phoneInput   = document.getElementById('phone');
+      const subjectInput = document.getElementById('subject');
+      const messageInput = document.getElementById('message');
+
+      const phoneRegex = /^[+]?[\d\s\-().]{7,20}$/;
+      const fields = [
+        { el: nameInput,    test: v => v.length >= 2 && v.length <= 100 },
+        { el: phoneInput,   test: v => phoneRegex.test(v) },
+        { el: subjectInput, test: v => v.length >= 2 && v.length <= 200 },
+        { el: messageInput, test: v => v.length >= 5 && v.length <= 2000 },
+      ];
+
       let valid = true;
-      inputs.forEach(input => {
-        if (!input.value) {
-          input.style.borderColor = 'rgba(220,80,80,0.6)';
+      fields.forEach(({ el, test }) => {
+        const val = el.value.trim();
+        if (!val || !test(val)) {
+          el.style.borderColor = 'rgba(220,80,80,0.6)';
           valid = false;
         } else {
-          input.style.borderColor = '';
+          el.style.borderColor = '';
+          // Trim whitespace in-place
+          el.value = val;
         }
       });
 
       if (!valid) return;
+
+      // Sanitize values before any further use (XSS prevention)
+      const _safeName    = escapeHtml(nameInput.value);
+      const _safePhone   = escapeHtml(phoneInput.value);
+      const _safeSubject = escapeHtml(subjectInput.value);
+      const _safeMessage = escapeHtml(messageInput.value);
 
       // Show success state
       form.style.display = 'none';
