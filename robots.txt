@@ -3,4 +3,25 @@ Allow: /
 Disallow: /.well-known/
 Disallow: /serve.mjs
 
-Sitemap: https://domkinaluzie.pl/sitemap.xml
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.domkinaluzie.pl/sitemap.xml
