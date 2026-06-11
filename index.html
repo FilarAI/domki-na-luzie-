@@ -2417,23 +2417,90 @@
       transform: translateX(4px);
     }
 
-    .blog-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .blog-carousel-container {
+      position: relative;
+      padding: 0 0 3rem;
     }
 
-    @media (min-width: 768px) {
-      .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem;
+    .swiper-blog {
+      overflow: hidden;
+      padding-bottom: 0.5rem;
+    }
+
+    .swiper-blog .swiper-slide {
+      height: auto;
+    }
+
+    .swiper-blog-prev,
+    .swiper-blog-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-calc(50% + 1.5rem));
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-cream);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .swiper-blog-prev { left: -56px; }
+    .swiper-blog-next { right: -56px; }
+
+    .swiper-blog-prev:hover,
+    .swiper-blog-next:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: #1A1A1A;
+    }
+
+    .swiper-blog-prev.swiper-button-disabled,
+    .swiper-blog-next.swiper-button-disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .swiper-blog-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .swiper-blog-pagination .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      opacity: 1;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .swiper-blog-pagination .swiper-pagination-bullet-active {
+      background: var(--color-accent);
+      transform: scale(1.25);
+    }
+
+    @media (max-width: 1200px) {
+      .swiper-blog-prev { left: -10px; }
+      .swiper-blog-next { right: -10px; }
+      .swiper-blog-prev,
+      .swiper-blog-next {
+        width: 38px;
+        height: 38px;
+        background: rgba(34,34,34,0.9);
       }
     }
 
-    @media (min-width: 1024px) {
-      .blog-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+    @media (max-width: 768px) {
+      .swiper-blog-prev,
+      .swiper-blog-next {
+        display: none;
       }
     }
 
@@ -2972,6 +3039,34 @@
   <!-- GEO: Article Schema for blog posts -->
   <script type="application/ld+json">
   [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Termy i SPA w okolicy Beskidów — gdzie się zrelaksować po górskich wędrówkach?",
+      "description": "Przewodnik po najlepszych termach w Beskidach: Gorący Potok, Chochołowskie, Bania. Porównanie cen, odległości i atrakcji. Prywatne jacuzzi jako alternatywa.",
+      "image": "https://www.domkinaluzie.pl/blog_termy.jpg",
+      "datePublished": "2026-06-11",
+      "dateModified": "2026-06-11",
+      "author": {"@type": "Organization", "name": "Domki na Luzie", "url": "https://www.domkinaluzie.pl"},
+      "publisher": {"@type": "Organization", "name": "Domki na Luzie", "url": "https://www.domkinaluzie.pl"},
+      "mainEntityOfPage": "https://www.domkinaluzie.pl/blog/termy-spa-okolica-beskidy.html",
+      "inLanguage": "pl",
+      "keywords": "termy Beskidy, spa góry, Gorący Potok, Chochołowskie Termy, Termy Bania, jacuzzi domki góry"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Babia Góra — szlaki, poziomy trudności i praktyczne porady",
+      "description": "Kompletny przewodnik po szlakach na Babią Górę. Trasy z Zawoi, czasy przejścia, trudność, co zabrać. Domki na Luzie jako baza wypadowa.",
+      "image": "https://www.domkinaluzie.pl/blog_babia_gora.jpg",
+      "datePublished": "2026-06-11",
+      "dateModified": "2026-06-11",
+      "author": {"@type": "Organization", "name": "Domki na Luzie", "url": "https://www.domkinaluzie.pl"},
+      "publisher": {"@type": "Organization", "name": "Domki na Luzie", "url": "https://www.domkinaluzie.pl"},
+      "mainEntityOfPage": "https://www.domkinaluzie.pl/blog/babia-gora-szlaki-porady.html",
+      "inLanguage": "pl",
+      "keywords": "Babia Góra szlaki, Królowa Beskidów, Babiogórski Park Narodowy, trekking Beskidy"
+    },
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -4604,90 +4699,235 @@
           Odkryj nasz region, poznaj sekrety górskiego relaksu i dowiedz się, jak wycisnąć z pobytu w Beskidach
           absolutne maksimum.
         </p>
-        <button class="blog-view-all" onclick="return false;">
+        <a href="#blog" class="blog-view-all" style="text-decoration:none;">
           Przeglądaj wszystkie artykuły
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
-        </button>
+        </a>
       </div>
 
-      <div class="blog-grid fade-up">
+      <div class="blog-carousel-container fade-up">
+        <div class="swiper swiper-blog">
+          <div class="swiper-wrapper">
 
-        <!-- Article 1 -->
-        <article class="blog-card" onclick="openBlogModal('blog1')">
-          <div class="blog-img-wrap">
-            <img src="blog_beskidy.png" alt="Atrakcje w Beskidach" class="blog-img" loading="lazy">
-          </div>
-          <div class="blog-card-header">
-            <h3 class="blog-title">Atrakcje w Beskidach koło Makowa Podhalańskiego</h3>
-          </div>
-          <div class="blog-content">
-            <p class="blog-excerpt">Odkryj najpiękniejsze szlaki, zabytki i miejsca, które musisz zobaczyć podczas
-              pobytu w naszych domkach. Przewodnik po okolicy krok po kroku.</p>
-          </div>
-          <div class="blog-footer">
-            <button class="blog-read-more">
-              Czytaj więcej
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-        </article>
+            <!-- Slide 1 — NEW: Termy i SPA -->
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <a href="/blog/termy-spa-okolica-beskidy.html" style="text-decoration:none;color:inherit;display:contents;">
+                <div class="blog-img-wrap">
+                  <img src="blog_termy.jpg" alt="Termy i SPA w okolicy Beskidów" class="blog-img" loading="lazy" width="600" height="400">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Termy i SPA w okolicy Beskidów — gdzie się zrelaksować?</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Gorący Potok, Chochołowskie, Bania — porównanie najlepszych term w promieniu godziny jazdy. Ceny, odległości i prywatne jacuzzi jako alternatywa.</p>
+                </div>
+                <div class="blog-footer">
+                  <span class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
+                </a>
+              </article>
+            </div>
 
-        <!-- Article 2 -->
-        <article class="blog-card" onclick="openBlogModal('blog2')">
-          <div class="blog-img-wrap">
-            <img src="blog_jacuzzi.png" alt="Prywatny basen i jacuzzi" class="blog-img" loading="lazy">
-          </div>
-          <div class="blog-card-header">
-            <h3 class="blog-title">Luksusowy wypoczynek w górach – basen i jacuzzi na wyłączność</h3>
-          </div>
-          <div class="blog-content">
-            <p class="blog-excerpt">Poczuj się jak w prywatnym spa. Dowiedz się, dlaczego nasze udogodnienia premium –
-              basen i jacuzzi – robią tak wielką różnicę.</p>
-          </div>
-          <div class="blog-footer">
-            <button class="blog-read-more">
-              Czytaj więcej
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-        </article>
+            <!-- Slide 2 — NEW: Babia Góra -->
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <a href="/blog/babia-gora-szlaki-porady.html" style="text-decoration:none;color:inherit;display:contents;">
+                <div class="blog-img-wrap">
+                  <img src="blog_babia_gora.jpg" alt="Babia Góra — szlaki i porady" class="blog-img" loading="lazy" width="600" height="400">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Babia Góra — szlaki, poziomy trudności i praktyczne porady</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Królowa Beskidów (1725 m). Trzy szlaki z Zawoi, czasy przejścia, co zabrać i kiedy iść. Domki na Luzie 25 km od szlaku.</p>
+                </div>
+                <div class="blog-footer">
+                  <span class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
+                </a>
+              </article>
+            </div>
 
-        <!-- Article 3 -->
-        <article class="blog-card" onclick="openBlogModal('blog3')">
-          <div class="blog-img-wrap">
-            <img src="blog_nature.png" alt="Relaks na łonie natury" class="blog-img" loading="lazy">
-          </div>
-          <div class="blog-card-header">
-            <h3 class="blog-title">Relaks na łonie natury – dlaczego Beskidy to idealne miejsce na urlop</h3>
-          </div>
-          <div class="blog-content">
-            <p class="blog-excerpt">Spokój, cisza i bliskość lasu. Sprawdź, jak odpoczynek w górach wpływa na
-              regenerację ciała i umysłu.</p>
-          </div>
-          <div class="blog-footer">
-            <button class="blog-read-more">
-              Czytaj więcej
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </div>
-        </article>
+            <!-- Slide 3 — Atrakcje w Beskidach (modal) -->
+            <div class="swiper-slide">
+              <article class="blog-card" onclick="openBlogModal('blog1')">
+                <div class="blog-img-wrap">
+                  <img src="blog_beskidy.png" alt="Atrakcje w Beskidach" class="blog-img" loading="lazy">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Atrakcje w Beskidach koło Makowa Podhalańskiego</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Odkryj najpiękniejsze szlaki, zabytki i miejsca, które musisz zobaczyć podczas pobytu w naszych domkach. Przewodnik po okolicy krok po kroku.</p>
+                </div>
+                <div class="blog-footer">
+                  <button class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
 
+            <!-- Slide 4 — Luksusowy wypoczynek (modal) -->
+            <div class="swiper-slide">
+              <article class="blog-card" onclick="openBlogModal('blog2')">
+                <div class="blog-img-wrap">
+                  <img src="blog_jacuzzi.png" alt="Prywatny basen i jacuzzi" class="blog-img" loading="lazy">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Luksusowy wypoczynek w górach – basen i jacuzzi na wyłączność</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Poczuj się jak w prywatnym spa. Dowiedz się, dlaczego nasze udogodnienia premium – basen i jacuzzi – robią tak wielką różnicę.</p>
+                </div>
+                <div class="blog-footer">
+                  <button class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 5 — Relaks na łonie natury (modal) -->
+            <div class="swiper-slide">
+              <article class="blog-card" onclick="openBlogModal('blog3')">
+                <div class="blog-img-wrap">
+                  <img src="blog_nature.png" alt="Relaks na łonie natury" class="blog-img" loading="lazy">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Relaks na łonie natury – dlaczego Beskidy to idealne miejsce na urlop</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Spokój, cisza i bliskość lasu. Sprawdź, jak odpoczynek w górach wpływa na regenerację ciała i umysłu.</p>
+                </div>
+                <div class="blog-footer">
+                  <button class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 6 — Stok narciarski (blog page) -->
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <a href="/blog/stok-narciarski-beskid-spytkowice.html" style="text-decoration:none;color:inherit;display:contents;">
+                <div class="blog-img-wrap">
+                  <img src="blog_beskidy.png" alt="Stok narciarski Beskid w Spytkowicach" class="blog-img" loading="lazy" width="600" height="400">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Stok narciarski Beskid w Spytkowicach — informacje i trasy</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">1 km od Domków na Luzie. Wszystko o stoku Beskid: trasy, ceny skipassów, wynajem sprzętu i szkółka narciarska.</p>
+                </div>
+                <div class="blog-footer">
+                  <span class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
+                </a>
+              </article>
+            </div>
+
+            <!-- Slide 7 — Domki z basenem (blog page) -->
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <a href="/blog/domki-z-basenem-jacuzzi-beskidy.html" style="text-decoration:none;color:inherit;display:contents;">
+                <div class="blog-img-wrap">
+                  <img src="blog_jacuzzi.png" alt="Domki z basenem i jacuzzi w Beskidach" class="blog-img" loading="lazy" width="600" height="400">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Domki z prywatnym basenem i jacuzzi w Beskidach — czego szukać?</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Prywatny basen czy wspólny? Na co zwrócić uwagę? Kompletny przewodnik dla wymagających gości.</p>
+                </div>
+                <div class="blog-footer">
+                  <span class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
+                </a>
+              </article>
+            </div>
+
+            <!-- Slide 8 — Romantyczny weekend (blog page) -->
+            <div class="swiper-slide">
+              <article class="blog-card">
+                <a href="/blog/romantyczny-weekend-dla-dwojga-beskidy.html" style="text-decoration:none;color:inherit;display:contents;">
+                <div class="blog-img-wrap">
+                  <img src="blog_nature.png" alt="Romantyczny weekend dla dwojga w Beskidach" class="blog-img" loading="lazy" width="600" height="400">
+                </div>
+                <div class="blog-card-header">
+                  <h3 class="blog-title">Romantyczny weekend w Beskidach dla dwojga — pomysły i miejsca</h3>
+                </div>
+                <div class="blog-content">
+                  <p class="blog-excerpt">Termy, jacuzzi, góry i cisza. Jak zaplanować idealny wyjazd dla pary w Beskidach krok po kroku.</p>
+                </div>
+                <div class="blog-footer">
+                  <span class="blog-read-more">
+                    Czytaj więcej
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </span>
+                </div>
+                </a>
+              </article>
+            </div>
+
+          </div>
+        </div>
+        <button class="swiper-blog-prev" aria-label="Poprzedni artykuł">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="swiper-blog-next" aria-label="Następny artykuł">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
+        <div class="swiper-blog-pagination"></div>
       </div>
     </div>
   </section>
@@ -5212,6 +5452,32 @@
         }
       }
     });
+
+    // ── Blog Swiper Initialization ──
+    const blogSwiper = new Swiper('.swiper-blog', {
+      slidesPerView: 1.1,
+      spaceBetween: 20,
+      grabCursor: true,
+      navigation: {
+        prevEl: '.swiper-blog-prev',
+        nextEl: '.swiper-blog-next',
+      },
+      pagination: {
+        el: '.swiper-blog-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 24,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 28,
+        }
+      }
+    });
+
     // ── Blog Modal Logic ──
     const blogData = {
       blog1: {
@@ -5434,6 +5700,42 @@
 
   <!-- GEO: Static blog content for AI crawlers (hidden visually, indexable by bots) -->
   <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
+    <article id="static-blog-termy" itemscope itemtype="https://schema.org/Article">
+      <h2 itemprop="headline">Termy i SPA w okolicy Beskidów — gdzie się zrelaksować po górskich wędrówkach?</h2>
+      <div itemprop="articleBody">
+        <p>Po całym dniu na beskidzkich szlakach ciało domaga się regeneracji. Beskidy łączą coś, co rzadko spotyka się w jednym miejscu: dziką przyrodę górską z bogatą infrastrukturą wellness. W promieniu godziny jazdy od Makowa Podhalańskiego znajdziesz kilka dużych kompleksów termalnych.</p>
+        <h4>Termy Gorący Potok — Szaflary</h4>
+        <p>Termy Gorący Potok w Szaflarach to najbliższy duży kompleks termalny od Domków na Luzie — około 45 km, co przekłada się na mniej więcej 40 minut jazdy. Kompleks oferuje baseny wewnętrzne i zewnętrzne z wodą geotermalną o temperaturze 30–36°C. Na terenie znajdziesz strefę saun, grotę solną, strefę relaksu i gastronomię. Bilet normalny (2h) od ok. 75–90 zł.</p>
+        <h4>Termy Chochołowskie</h4>
+        <p>Termy Chochołowskie to jeden z największych i najpopularniejszych kompleksów termalnych w całej Małopolsce. Odległość od Domków na Luzie to około 60 km (~50 minut jazdy). Ponad 30 basenów i atrakcji wodnych, w tym baseny geotermalne z wodą o temperaturze 34–36°C, rwąca rzeka, masaże wodne, jacuzzi i zewnętrzny basen z widokiem na Tatry. Bilet normalny od ok. 80–100 zł.</p>
+        <h4>Termy Bania — Białka Tatrzańska</h4>
+        <p>Termy Bania w Białce Tatrzańskiej to kompleks, który stawia na widoki. Baseny zewnętrzne z gorącą wodą termalną z panoramą na Tatry. Odległość od Domków na Luzie to około 55 km (~45 minut jazdy). Baseny termalne wewnętrzne i zewnętrzne, strefa saunowa, strefa VIP dla par. Bilet normalny od ok. 80–95 zł.</p>
+        <h4>Prywatne jacuzzi w Domkach na Luzie</h4>
+        <p>W Domkach na Luzie goście mają do dyspozycji prywatne, podgrzewane jacuzzi — dostępne o każdej porze, bez kolejek, bez dodatkowych opłat. Wliczone w cenę pobytu. W sezonie letnim do dyspozycji gości jest również prywatny basen.</p>
+        <h4>Jak zaplanować dzień SPA w Beskidach?</h4>
+        <p>Sprawdzony plan dnia: rano śniadanie w domku, przedpołudnie lekki szlak, po południu termy, wieczór grill na tarasie i jacuzzi pod gwiazdami.</p>
+      </div>
+    </article>
+
+    <article id="static-blog-babia" itemscope itemtype="https://schema.org/Article">
+      <h2 itemprop="headline">Babia Góra — szlaki, poziomy trudności i praktyczne porady</h2>
+      <div itemprop="articleBody">
+        <p>Babia Góra (1725 m n.p.m.) to najwyższy szczyt Beskidu Żywieckiego i jeden z najbardziej charakterystycznych wierzchołków w polskich górach. Nazywana Królową Beskidów, od wieków przyciąga turystów surowymi widokami, zmienną pogodą i poczuciem prawdziwej górskiej wyprawy. Szczyt leży w Babiogórskim Parku Narodowym, Rezerwacie Biosfery UNESCO. Domki na Luzie w Spytkowicach to świetna baza — ok. 25 km do wejścia na szlaki.</p>
+        <h4>Szlak niebieski z Zawoi Markowe Szczawiny</h4>
+        <p>Najpopularniejszy i najczęściej polecany szlak na Babią Górę. Start: parking leśny Zawoja Markowe Szczawiny (~25 km od Domków na Luzie). Czas wejścia: ok. 3,5–4 godziny, zejścia: 2,5–3 godziny. Trudność: średniozaawansowany. Trasa prowadzi przez las bukowy do Schroniska PTTK na Markowych Szczawinach (1180 m), następnie stromym zboczem przez kosodrzewinę na szczyt.</p>
+        <h4>Szlak żółty z Zawoi Policzne</h4>
+        <p>Dłuższa, ale łagodniejsza alternatywa. Czas wejścia: ok. 4–4,5 godziny. Przechodzi obok Schroniska Akademickiego na Równieni pod Kłodą.</p>
+        <h4>Szlak grzbietowy — Perć Akademików</h4>
+        <p>Najtrudniejsza trasa na Babią Górę. Odcinki z łańcuchami, duża ekspozycja, bardzo zmienna pogoda. Tylko dla doświadczonych turystów. Zimą wymaga pełnego wyposażenia wysokogórskiego (raki, czekan).</p>
+        <h4>Kiedy najlepiej wejść na Babią Górę?</h4>
+        <p>Najlepsze miesiące: czerwiec–wrzesień. Złota jesień (wrzesień–początek października) to nasz ulubiony okres. Zima: tylko dla bardzo doświadczonych turystów.</p>
+        <h4>Co zabrać na Babią Górę?</h4>
+        <p>Buty trekkingowe z twardą podeszwą, kurtka przeciwdeszczowa, woda minimum 1,5 litra, jedzenie, czapka i rękawiczki nawet latem, warstwa ocieplająca, mapa lub GPS. Pogoda na Babiej Górze zmienia się w minuty — nawet latem temperatura na szczycie może spaść do 5°C.</p>
+        <h4>Domki na Luzie jako baza wypadowa</h4>
+        <p>Parking Zawoja Markowe Szczawiny jest oddalony od Domków na Luzie o 25 km (~30 min jazdy). Po wędrówce — prywatne jacuzzi wliczone w cenę pobytu. Komfort, prywatność i regeneracja po górskiej wyprawie.</p>
+      </div>
+    </article>
+
     <article id="static-blog1" itemscope itemtype="https://schema.org/Article">
       <h2 itemprop="headline">Atrakcje w Beskidach koło Makowa Podhalańskiego</h2>
       <div itemprop="articleBody">
