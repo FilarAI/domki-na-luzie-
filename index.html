@@ -1237,12 +1237,12 @@
     .swiper-button-prev {
       color: var(--color-accent) !important;
       background: rgba(30, 43, 30, 0.6);
-      width: 50px !important;
-      height: 50px !important;
+      width: 64px !important;
+      height: 64px !important;
       border-radius: 50%;
       border: 1px solid rgba(220, 168, 56, 0.3);
       backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
       top: 50% !important;
       transform: translateY(-50%);
     }
@@ -1251,6 +1251,22 @@
     .swiper-button-prev::after {
       font-size: 1.25rem !important;
       font-weight: bold;
+    }
+
+    .swiper-button-next svg,
+    .swiper-button-prev svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 2.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .reviews-container .swiper-button-next::after,
+    .reviews-container .swiper-button-prev::after {
+      content: none !important;
     }
 
     .swiper-button-next {
@@ -2076,8 +2092,8 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        width: 38px !important;
-        height: 38px !important;
+        width: 52px !important;
+        height: 52px !important;
       }
 
       .swiper-button-next::after,
@@ -4342,8 +4358,16 @@
           <div class="swiper-pagination"></div>
         </div>
 
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <button class="swiper-button-prev" type="button" aria-label="Poprzednia opinia">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="swiper-button-next" type="button" aria-label="Następna opinia">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
       </div>
 
       <div class="reviews-trust-row fade-up" style="animation-delay: 0.6s; flex-direction: column; gap: 1.5rem;">
@@ -4699,14 +4723,6 @@
           Odkryj nasz region, poznaj sekrety górskiego relaksu i dowiedz się, jak wycisnąć z pobytu w Beskidach
           absolutne maksimum.
         </p>
-        <a href="#blog" class="blog-view-all" style="text-decoration:none;">
-          Przeglądaj wszystkie artykuły
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
       </div>
 
       <div class="blog-carousel-container fade-up">
