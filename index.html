@@ -2805,6 +2805,21 @@
   }
   </script>
 
+  <!-- GEO: Person Schema (właścicielka) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ewa",
+    "jobTitle": "Właścicielka",
+    "worksFor": {
+      "@type": "LodgingBusiness",
+      "name": "Domki na Luzie",
+      "url": "https://www.domkinaluzie.pl"
+    }
+  }
+  </script>
+
   <!-- GEO: FAQPage Schema -->
   <script type="application/ld+json">
   {
@@ -3761,6 +3776,35 @@
           <a href="https://panel.hotres.pl/v4_step1?oid=4151&lang=pl" target="_blank" class="btn-gold">Zarezerwuj
             termin</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- ABOUT / O NAS -->
+  <!-- ═══════════════════════════════════ -->
+  <section id="about" aria-label="O obiekcie" style="background: var(--color-bg); padding: 5rem 0;">
+    <div class="section-wrapper">
+      <div class="section-header center">
+        <p class="section-label">O obiekcie</p>
+        <h2 class="heading-serif" style="font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--color-cream);">
+          Nasza historia
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="fade-up" style="max-width: 740px; margin: 0 auto; text-align: center;">
+        <p style="color: var(--color-text); font-size: 1.1rem; line-height: 1.85; margin-bottom: 1.5rem;">
+          Domki na Luzie powstały z prostej potrzeby — stworzenia miejsca, w którym można naprawdę odpocząć. Właścicielka Ewa marzyła o enklawie spokoju między Krakowem a Zakopanem, z dala od zgiełku codzienności. Tak w&nbsp;2024 roku w&nbsp;Spytkowicach, u&nbsp;podnóża Beskidów, stanęły trzy prywatne domki premium z basenem i jacuzzi.
+        </p>
+        <p style="color: var(--color-text); font-size: 1.1rem; line-height: 1.85; margin-bottom: 1.5rem;">
+          Filozofia obiektu opiera się na głębokim resecie — kapielach leśnych, ciszy poranka na tarasie i wieczornym relaksie w jacuzzi pod gwiazdami. Każdy detal, od pościeli premium po ekspres do kawy, został dobrany z myślą o&nbsp;komforcie gości.
+        </p>
+        <p style="color: var(--color-muted); font-size: 0.95rem; font-style: italic; line-height: 1.7;">
+          „Rewelacyjny, podgrzewany basen oraz domki w&nbsp;wysokim standardzie. Bardzo dobry kontakt z&nbsp;właścicielką, Panią Ewą."
+          <span style="display: block; margin-top: 0.5rem; color: var(--color-accent); font-style: normal; font-weight: 600; font-size: 0.85rem;">— Opinia gościa, Booking.com</span>
+        </p>
       </div>
     </div>
   </section>
@@ -5042,6 +5086,42 @@
           </div>
         </div>
 
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q6" aria-controls="faq-a6">
+            Jak daleko do Zakopanego?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6">
+            <div class="faq-answer-inner">
+              Zakopane jest oddalone ok. 40 km od naszych domków — to około 30 minut jazdy samochodem.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q7" aria-controls="faq-a7">
+            Jak daleko są Termy Gorący Potok?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a7" role="region" aria-labelledby="faq-q7">
+            <div class="faq-answer-inner">
+              Termy Gorący Potok w Szaflarach są oddalone ok. 20 minut jazdy samochodem od Domków na Luzie.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" id="faq-q8" aria-controls="faq-a8">
+            Czy obiekt jest czynny zimą?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-a8" role="region" aria-labelledby="faq-q8">
+            <div class="faq-answer-inner">
+              Tak — obiekt działa przez cały rok. Zimą stok narciarski Beskid w Spytkowicach znajduje się zaledwie 1 km od domków. Basen jest podgrzewany, a jacuzzi dostępne niezależnie od pogody.
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- Mid-page CTA -->
@@ -5203,7 +5283,7 @@
 
     <!-- Footer bottom -->
     <div class="footer-bottom">
-      <p>© 2025 Domki na Luzie · Spytkowice 103, 34-745 · Wszelkie prawa zastrzeżone</p>
+      <p>© 2026 Domki na Luzie · Spytkowice 103, 34-745 · Wszelkie prawa zastrzeżone</p>
       <div class="footer-links">
         <a href="/regulamin.html">Regulamin</a>
         <a href="/polityka-prywatnosci.html">Polityka prywatności</a>
@@ -5795,6 +5875,31 @@
       </div>
     </article>
   </div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:rgba(20,20,20,0.97); backdrop-filter:blur(8px); border-top:1px solid rgba(220,168,56,0.3); padding:1rem 1.5rem; font-family:inherit;">
+    <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;">
+      <p style="color:#d1d5db; font-size:0.9rem; margin:0; flex:1; min-width:240px; line-height:1.5;">
+        Używamy plików cookies do analizy ruchu na stronie.
+        <a href="/polityka-prywatnosci.html" style="color:#DCA838; text-decoration:underline;">Polityka Prywatności</a>
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-shrink:0;">
+        <button onclick="acceptCookies('essential')" style="background:transparent; border:1.5px solid #6b7280; color:#d1d5db; padding:0.6rem 1.4rem; border-radius:8px; cursor:pointer; font-size:0.85rem; font-family:inherit; font-weight:500; transition:border-color 0.2s;">Tylko niezbędne</button>
+        <button onclick="acceptCookies('all')" style="background:#DCA838; border:1.5px solid #DCA838; color:#000; padding:0.6rem 1.4rem; border-radius:8px; cursor:pointer; font-size:0.85rem; font-family:inherit; font-weight:600; transition:background 0.2s;">Akceptuj wszystkie</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function(){
+    if(!localStorage.getItem('cookie-consent')){
+      document.getElementById('cookie-banner').style.display='block';
+    }
+  })();
+  function acceptCookies(level){
+    localStorage.setItem('cookie-consent',level);
+    document.getElementById('cookie-banner').style.display='none';
+  }
+  </script>
 
 </body>
 

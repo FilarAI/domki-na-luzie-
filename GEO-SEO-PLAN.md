@@ -1,367 +1,198 @@
 # GEO-SEO Plan — domkinaluzie.pl
-**Cel: 27/100 → 90+/100**
-**Data startu:** 2026-06-02
-**Ostatni audyt:** GEO-AUDIT-REPORT.md
+**Cel: 55/100 → 80+/100**
+**Okres:** Czerwiec-Lipiec 2026
+**Ostatni audyt:** GEO-AUDIT-NR2.md (2026-06-12)
+**Przygotował:** FILAR AI
 
 ---
 
-## Stan aktualny (po Quick Wins z 2026-06-02)
+## Stan Aktualny (po Audycie Nr 2, 12.06.2026)
 
-| Kategoria | Przed | Po QW | Cel |
+| Kategoria | Start (02.06) | Teraz (12.06) | Cel (12.07) |
 |---|---|---|---|
-| AI Citability | 25/100 | ~40/100 | 80/100 |
-| Brand Authority | 30/100 | 30/100 | 75/100 |
-| Content E-E-A-T | 30/100 | 30/100 | 75/100 |
-| Technical GEO | 40/100 | 65/100 | 85/100 |
-| Schema & Structured Data | 5/100 | 42/100 | 85/100 |
-| Platform Optimization | 20/100 | 25/100 | 75/100 |
-| **OVERALL** | **27/100** | **~39/100** | **90+/100** |
+| AI Citability | 25/100 | 62/100 | 75/100 |
+| Brand Authority | 30/100 | 32/100 | 60/100 |
+| Content E-E-A-T | 30/100 | 58/100 | 72/100 |
+| Technical GEO | 40/100 | 78/100 | 85/100 |
+| Schema & Structured Data | 5/100 | 75/100 | 82/100 |
+| Platform Optimization | 20/100 | 25/100 | 50/100 |
+| **OGÓLNY** | **27/100** | **55/100** | **~75/100** |
 
-### Co już jest zrobione ✅
-- [x] LodgingBusiness JSON-LD schema
-- [x] FAQPage JSON-LD schema (5 pytań)
-- [x] Open Graph meta tagi
-- [x] Canonical URL
-- [x] sitemap.xml
-- [x] llms.txt
-
----
-
-## FAZA 1 — Treść Widoczna dla Crawlerów
-**Priorytet:** Krytyczny | **Czas:** ~3-4h | **Wpływ na score:** +15 pkt
-
-### 1.1 Blog: JavaScript → Static HTML
-
-**Problem:** Treść 3 artykułów jest w obiekcie JavaScript `blogData` (linie ~4863–4908 w index.html). Żaden bot AI jej nie widzi.
-
-**Rozwiązanie A (szybkie, bez nowych plików):**
-Dodaj ukryte sekcje `<article>` z pełną treścią jako statyczny HTML, widoczne dla botów ale ukryte wizualnie. Modals JS zostawiamy jak są.
-
-```html
-<!-- Dodaj przed </body>, po sekcji #blog -->
-<div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true">
-  <article id="static-blog1">
-    <h2>Atrakcje w Beskidach koło Makowa Podhalańskiego</h2>
-    <p>Beskidy to jeden z najpiękniejszych regionów...</p>
-    <!-- pełna treść z blogData.blog1.content -->
-  </article>
-  <!-- blog2, blog3 analogicznie -->
-</div>
 ```
-
-**Rozwiązanie B (lepsze długoterminowo):**
-Utwórz osobne podstrony: `/blog/atrakcje-beskidy.html`, `/blog/basen-jacuzzi.html`, `/blog/relaks-natura.html`
-- Dodaj `Article` JSON-LD na każdej
-- Dodaj wpisy do `sitemap.xml`
-- Linki w sekcji blog kierują na te strony zamiast otwierać modal
-
-### 1.2 Opinie jako Static HTML (nie tylko Swiper)
-
-**Problem:** Karty opinii są w Swiper.js carousel — boty mogą nie indeksować wszystkich.
-
-**Rozwiązanie:** Dodaj `Review` + `AggregateRating` JSON-LD dla wybranych opinii:
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Review",
-  "itemReviewed": {"@type": "LodgingBusiness", "name": "Domki na Luzie"},
-  "author": {"@type": "Person", "name": "Anna K."},
-  "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
-  "reviewBody": "Treść opinii...",
-  "datePublished": "2024-08-15"
-}
-```
-
-Zbierz 5-8 prawdziwych opinii z Google/Booking i dodaj je jako JSON-LD.
-
----
-
-## FAZA 2 — Schema Rozszerzenie
-**Priorytet:** Wysoki | **Czas:** ~2h | **Wpływ na score:** +10 pkt
-
-### 2.1 Offer Schema dla Pakietów
-
-Każdy pakiet powinien mieć `Offer` schema. Dodaj do LodgingBusiness:
-
-```json
-"hasOfferCatalog": {
-  "@type": "OfferCatalog",
-  "name": "Pakiety pobytowe",
-  "itemListElement": [
-    {
-      "@type": "Offer",
-      "name": "Domki PREMIUM z basenem",
-      "description": "Klasyczny pobyt z pełnym dostępem do basenu i jacuzzi.",
-      "availability": "https://schema.org/InStock",
-      "minimumPurchaseQuantity": 2,
-      "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 4, "unitText": "osoby"}
-    },
-    {
-      "@type": "Offer",
-      "name": "Pakiet dla Dwojga",
-      "description": "Romantyczny pobyt dla 2 osób z voucherem na kolację.",
-      "eligibleQuantity": {"@type": "QuantitativeValue", "maxValue": 2, "unitText": "osoby"}
-    }
-  ]
-}
-```
-
-### 2.2 TouristAttraction Schema dla Atrakcji w Okolicy
-
-Dodaj `TouristAttraction` schema dla kluczowych atrakcji (pomaga AI odpowiadać na "co zobaczyć koło X"):
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "TouristAttraction",
-  "name": "Domki na Luzie - Baza Turystyczna",
-  "description": "Baza noclegowa z dostępem do Babiej Góry, Term Gorący Potok i stoków narciarskich.",
-  "touristType": ["Pary", "Grupy znajomych", "Narciarze", "Turyści pieszej"],
-  "availableLanguage": "Polish"
-}
-```
-
-### 2.3 Rozszerzone FAQ (10+ pytań)
-
-Dodaj do FAQPage schema minimum 5 nowych pytań. Propozycje:
-
-```json
-{"name": "Jak daleko do Zakopanego?", "text": "Zakopane jest oddalone ok. 40 km (~30 min jazdy samochodem)."},
-{"name": "Jak daleko do Krakowa?", "text": "Kraków jest oddalony ok. 60 km (~50 min jazdy)."},
-{"name": "Czy jest możliwość grillowania?", "text": "Tak, każdy domek posiada prywatny taras z grilem."},
-{"name": "Ile domków jest na terenie obiektu?", "text": "Na terenie znajdują się 3 domki premium, każdy o powierzchni 40 m²."},
-{"name": "Czy obiekt jest czynny zimą?", "text": "Tak, obiekt działa przez cały rok. Zimą 1 km od stoku narciarskiego."},
-{"name": "Jak blisko jest stok narciarski?", "text": "Stok narciarski w Makowie Podhalańskim jest oddalony ok. 1 km od obiektu."},
-{"name": "Jaka jest minimalna liczba nocy?", "text": "Minimalna liczba nocy to 2 (w pakiecie SLOW od niedzieli do piątku)."}
+Start (02.06):    27/100 █████░░░░░░░░░░░░░░░
+Teraz (12.06):    55/100 ███████████░░░░░░░░░
+Cel (12.07):      75/100 ███████████████░░░░░
+Cel końcowy:      90/100 ██████████████████░░
 ```
 
 ---
 
-## FAZA 3 — E-E-A-T i Autentyczność
-**Priorytet:** Wysoki | **Czas:** ~2h pisanie + 30 min kod | **Wpływ na score:** +12 pkt
+## 🔑 CO MOŻESZ ZROBIĆ SAMA — Instrukcje Krok po Kroku
 
-### 3.1 Sekcja "O Nas" / Historia Obiektu
-
-**Dodaj do index.html nową sekcję** między `#for-who` a `#amenities`:
-
-Treść powinna zawierać:
-- Imię właściciela/właścicieli
-- Rok otwarcia obiektu
-- Dlaczego powstał ("wymarzyliśmy sobie miejsce gdzie...")
-- 2-3 zdania o filozofii obiektu (prywatność, luksus, Beskidy)
-
-Przykład struktury HTML:
-```html
-<section id="about" aria-label="O obiekcie">
-  <div class="section-wrapper">
-    <h2>Nasza Historia</h2>
-    <p>[Imię] otworzył/a Domki na Luzie w [roku]...</p>
-  </div>
-</section>
-```
-
-Dodaj `Person` schema dla właściciela:
-```json
-{
-  "@type": "Person",
-  "name": "[Imię Właściciela]",
-  "jobTitle": "Właściciel",
-  "worksFor": {"@type": "LodgingBusiness", "name": "Domki na Luzie"}
-}
-```
-
-### 3.2 Cennik w HTML (nie tylko na Hotres)
-
-AI nie może odczytać cen z zewnętrznej platformy rezerwacyjnej. Dodaj orientacyjny cennik w HTML:
-
-```html
-<section id="pricing">
-  <h2>Orientacyjne Ceny</h2>
-  <p>Ceny zaczynają się od [X] zł / noc za domek. Pełna dostępność i aktualne ceny na hotres.</p>
-</section>
-```
-
-Nawet jeden akapit z przedziałem cenowym (np. "od X zł/noc") znacząco podnosi citability.
-
-### 3.3 Regulamin i Polityka Prywatności — z Google Drive na własną domenę
-
-**Problem:** Dokumenty w Google Drive są słabym sygnałem zaufania.
-
-**Rozwiązanie:**
-- Utwórz `regulamin.html` w katalogu projektu
-- Utwórz `polityka-prywatnosci.html`
-- Zmień linki w footerze z `drive.google.com` na `/regulamin.html`
+Te działania nie wymagają wiedzy technicznej. Każde z nich podniesie widoczność Twoich domków w wyszukiwarkach AI (ChatGPT, Google AI, Perplexity).
 
 ---
 
-## FAZA 4 — Brand Authority (Zewnętrzne Platformy)
-**Priorytet:** Wysoki | **Czas:** ~3-5h jednorazowo | **Wpływ na score:** +18 pkt
+### 1. Google Business Profile (Najważniejsze!)
+**Dlaczego:** Google AI Overviews cytuje dane z Google Business Profile. Bez niego Twoje domki nie pojawiają się w AI-odpowiedziach na pytania o noclegi w Beskidach.
 
-To są działania poza stroną — wymagają rejestracji/edycji na zewnętrznych platformach.
+**Jak to zrobić:**
+1. Wejdź na **business.google.com** i zaloguj się kontem Google
+2. Wyszukaj "Domki na Luzie" — jeśli profil istnieje, kliknij "Zarządzaj"
+3. Jeśli nie istnieje — kliknij "Dodaj firmę" i wypełnij dane:
+   - Nazwa: **Domki na Luzie**
+   - Kategoria: **Domek letniskowy** + dodaj: **Wynajem wakacyjny**
+   - Adres: **Spytkowice 103, 34-745 Spytkowice**
+   - Telefon: **+48 605 744 722**
+   - Strona: **https://www.domkinaluzie.pl**
+4. Google wyśle kod weryfikacyjny pocztą lub SMS — wpisz go
+5. Po weryfikacji:
+   - **Załaduj minimum 20 zdjęć** (domki z zewnątrz, wnętrza, basen, jacuzzi, taras, widoki)
+   - **Odpowiedz na KAŻDĄ recenzję** — nawet krótkie "Dziękujemy!" to sygnał aktywności
+   - **Dodaj godziny otwarcia**: Codziennie, Check-in 15:00, Check-out 11:00
+   - **Dodaj opis** (750 znaków max): "Prywatne domki premium z basenem i jacuzzi w sercu Beskidów..."
 
-### 4.1 TripAdvisor — Dodaj Obiekt
-- URL: tripadvisor.com → "List your property"
-- To jedna z głównych platform którą AI (szczególnie ChatGPT) cytuje przy pytaniach o noclegi
-- Dodaj wszystkie zdjęcia, opis, odpowiedz na opinie
-- **Cel:** 20+ opinii w ciągu 3 miesięcy
-
-### 4.2 Portale Turystyczne — Wpisy
-Zarejestruj/uzupełnij profil na:
-- [ ] noclegi.pl
-- [ ] nocowanko.pl
-- [ ] e-turystyka.pl
-- [ ] wakacje.pl
-- [ ] turystyka.wp.pl
-- [ ] r2.pl (baza noclegów)
-
-AI cytuje te portale gdy ktoś pyta "domki z jacuzzi Beskidy" — Twoja strona musi tam być.
-
-### 4.3 Google Business Profile — Optymalizacja
-- Sprawdź czy profil jest zweryfikowany
-- Dodaj `sameAs` link do GBP w JSON-LD (dodaj URL do LodgingBusiness schema)
-- Uzupełnij wszystkie kategorie: "Domek letniskowy", "Wynajem wakacyjny"
-- Załaduj minimum 20 zdjęć
-- Odpowiedz na WSZYSTKIE recenzje (sygnał aktywności dla AI)
-
-### 4.4 YouTube — Kanał / Shorts
-- Nagraj krótki film (60 sek) pokazujący domki, basen, widoki
-- Wrzuć jako YouTube Short z opisem i linkiem do strony
-- Dodaj link do kanału w footer i schema `sameAs`
-- YouTube to platforma którą AI (szczególnie Gemini) najczęściej cytuje
+**Oczekiwany efekt:** Brand Authority +15, AI Citability +5
 
 ---
 
-## FAZA 5 — Technical Dopieszczenie
-**Priorytet:** Średni | **Czas:** ~2h | **Wpływ na score:** +6 pkt
+### 2. TripAdvisor — Dodaj Obiekt
+**Dlaczego:** ChatGPT i Perplexity cytują TripAdvisor najczęściej przy pytaniach o noclegi. Bez profilu tam — nie istniejesz dla tych systemów AI.
 
-### 5.1 Hreflang (jeśli planujesz wersję EN/DE)
-```html
-<link rel="alternate" hreflang="pl" href="https://www.domkinaluzie.pl/" />
-<link rel="alternate" hreflang="en" href="https://www.domkinaluzie.pl/en/" />
-```
+**Jak to zrobić:**
+1. Wejdź na **tripadvisor.pl**
+2. Na dole strony kliknij **"Twój obiekt na TripAdvisor"** (lub "List your property")
+3. Kliknij **"Dodaj swój obiekt"**
+4. Wypełnij formularz:
+   - Nazwa: **Domki na Luzie**
+   - Typ: **Wynajem wakacyjny / Holiday rental**
+   - Adres: **Spytkowice 103, 34-745**
+   - Opis po polsku i angielsku (możesz skopiować ze strony)
+5. Załaduj minimum 10 zdjęć (te same co na Google)
+6. Poczekaj na weryfikację (kilka dni)
+7. **Zachęcaj gości do zostawiania opinii na TripAdvisor** — im więcej opinii, tym wyższa pozycja w AI
 
-### 5.2 Robots.txt — Dodaj Explicit AI Crawlers
-Zaktualizuj robots.txt żeby explicite zapraszać AI:
-```
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-```
-
-### 5.3 Meta Robots i Crawl Hints
-Dodaj do `<head>`:
-```html
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-```
-
-`max-snippet:-1` = Google może użyć dowolnej długości fragmentu w AI Overviews. Bez tego Google może skracać cytaty.
-
-### 5.4 Sitemap Rozszerzony (po dodaniu podstron bloga)
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.domkinaluzie.pl/</loc>
-    <lastmod>2026-06-02</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.domkinaluzie.pl/blog/atrakcje-beskidy</loc>
-    <lastmod>2026-06-02</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.domkinaluzie.pl/blog/basen-jacuzzi</loc>
-    <lastmod>2026-06-02</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.domkinaluzie.pl/blog/relaks-natura</loc>
-    <lastmod>2026-06-02</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.domkinaluzie.pl/regulamin</loc>
-    <priority>0.3</priority>
-  </url>
-</urlset>
-```
+**Oczekiwany efekt:** Brand Authority +10, Platform Optimization +8
 
 ---
 
-## FAZA 6 — Content Marketing (Długoterminowy)
-**Priorytet:** Niski-Średni | **Czas:** ~1-2h/artykuł | **Wpływ na score:** +8 pkt w czasie
+### 3. Portale Turystyczne — Rejestracja
+**Dlaczego:** AI cytuje te portale gdy ktoś pyta "domki z jacuzzi Beskidy". Jeśli Cię tam nie ma, AI poleci konkurencję.
 
-### 6.1 Nowe Artykuły Blogowe (tematy pod AI citability)
-Tematy które AI często cytuje przy zapytaniach turystycznych:
+**Jak to zrobić (powtórz dla każdego portalu):**
 
-| Tytuł | Słowa kluczowe | Format |
+**noclegi.pl** (najważniejszy):
+1. Wejdź na **noclegi.pl** → "Dodaj obiekt" (link w stopce)
+2. Wypełnij formularz z danymi obiektu
+3. Załaduj zdjęcia
+4. Wybierz plan (są darmowe opcje)
+
+**nocowanko.pl:**
+1. Wejdź na **nocowanko.pl** → "Dla właścicieli"
+2. Kliknij "Dodaj obiekt"
+3. Wypełnij dane i dodaj zdjęcia
+
+**e-turystyka.pl:**
+1. Wejdź na **e-turystyka.pl** → "Dodaj obiekt" w menu
+2. Zarejestruj się i uzupełnij profil
+
+**wakacje.pl:**
+1. Wejdź na **wakacje.pl** → "Twój obiekt"
+2. Dodaj obiekt z pełnymi danymi
+
+**Oczekiwany efekt:** Brand Authority +10, Platform Optimization +10
+
+---
+
+### 4. YouTube Short — Nagraj 60-Sekundowy Film
+**Dlaczego:** Google Gemini cytuje YouTube najczęściej. Krótki film z domkami to najlepszy content wizualny dla premium obiektu.
+
+**Jak to zrobić:**
+1. Nagraj telefonem filmik 60 sekund:
+   - 0-10 sek: Widok z zewnątrz na domki
+   - 10-25 sek: Wnętrze domku (salon, sypialnia, łazienka)
+   - 25-40 sek: Basen i jacuzzi
+   - 40-50 sek: Taras z grilem, widoki na góry
+   - 50-60 sek: Logo + tekst "Zarezerwuj na domkinaluzie.pl"
+2. Wrzuć na YouTube jako **Short** (krótki film)
+3. W tytule: **"Domki na Luzie — Prywatne domki z basenem w Beskidach"**
+4. W opisie dodaj link: **https://www.domkinaluzie.pl**
+5. Tagi: domki Beskidy, jacuzzi góry, basen Małopolska, Spytkowice
+
+**Oczekiwany efekt:** Brand Authority +8, Platform Optimization +5
+
+---
+
+### 5. Zbieraj Opinie od Gości
+**Dlaczego:** Im więcej opinii na różnych platformach, tym silniejszy sygnał dla AI że obiekt jest popularny i godny polecenia.
+
+**Jak to zrobić:**
+1. Po każdym pobycie wyślij gościom wiadomość:
+   > "Dziękujemy za pobyt! Będzie nam bardzo miło, jeśli podzielisz się swoją opinią:
+   > - Google: [link do profilu Google]
+   > - TripAdvisor: [link do profilu]
+   > - Booking.com: [link do rezerwacji]"
+2. Cel: **10 nowych opinii miesięcznie** na różnych platformach
+3. **Odpowiadaj na KAŻDĄ opinię** — to sygnał aktywności dla AI
+
+---
+
+## 🔧 CO ZROBI FILAR AI — Sprint Techniczny (Czerwiec-Lipiec)
+
+### Tydzień 1 (12-19.06): Sekcja "O Nas" + Person Schema
+- [ ] Dodać sekcję "O Nas" w index.html (potrzebne: imię właściciela, rok otwarcia, 2-3 zdania o filozofii obiektu)
+- [ ] Dodać Person JSON-LD schema dla właściciela
+- [ ] Dodać dateModified do Article schema na wszystkich stronach
+- [ ] Dodać PriceRange do LodgingBusiness schema
+
+### Tydzień 2 (19-26.06): Content Optimization
+- [ ] Dodać linki zewnętrzne w artykułach blogowych (GOPR, PTTK, oficjalne strony term, stoki)
+- [ ] Wzbogacić artykuły o perspektywę pierwszoosobową ("Jako gospodyni polecam...")
+- [ ] Dodać ImageObject z caption w schema
+
+### Tydzień 3 (26.06-03.07): Nowe Artykuły Blogowe
+- [ ] "Co zabrać na zimowy wyjazd w Beskidy?" (~2000 słów + FAQ)
+- [ ] "Domki z jacuzzi Polska — jak wybrać idealny obiekt?" (~2000 słów + FAQ)
+- [ ] Zaktualizować sitemap.xml o nowe artykuły
+
+### Tydzień 4 (03-10.07): Nowe Artykuły + Optymalizacja
+- [ ] "Weekend SPA w górach dla par — gdzie jechać?" (~2000 słów + FAQ)
+- [ ] "Beskidy latem — co warto zobaczyć z Domków na Luzie?" (~2000 słów + FAQ)
+- [ ] Zaktualizować llms.txt o nowe treści
+- [ ] Dodać Event schema dla sezonowych pakietów (jeśli dotyczy)
+
+### Tydzień 5-6 (10-24.07): Weryfikacja + Audyt Nr 3
+- [ ] Sprawdzić Google Rich Results Test
+- [ ] Sprawdzić Schema Validator
+- [ ] Przeprowadzić Audyt GEO Nr 3
+- [ ] Porównać wyniki z Audytem Nr 2
+
+---
+
+## Harmonogram — Kto Co Robi
+
+| Tydzień | Klientka (działania zewnętrzne) | FILAR AI (zmiany techniczne) |
 |---|---|---|
-| "Co zabrać na zimowy wyjazd w Beskidy?" | zimowy wyjazd beskidy | Lista + FAQ |
-| "Domki z jacuzzi Polska — jak wybrać?" | domki z jacuzzi polska | Poradnik |
-| "Weekend spa w górach dla par — gdzie jechać?" | spa góry para weekend | Zestawienie |
-| "Beskidy z dziećmi 12+ — co warto zobaczyć?" | beskidy dzieci atrakcje | Przewodnik |
-| "Stok narciarski Maków Podhalański — informacje" | stok narciarski maków | Info lokalne |
-
-Format który AI najbardziej cytuje: **listy z nagłówkami H2/H3, FAQ na końcu, konkretne liczby/daty/odległości**.
-
-### 6.2 Linkbuilding z Local Sources
-- Poproś lokalne portale turystyczne o wzmiankę / link
-- Wpis w Wikipedia w artykule o Spytkowicach lub Makowie Podhalańskim (jeśli możliwe)
-- Współpraca z blogerami turystycznymi (micro-influencers Beskidy)
+| 12-19.06 | Google Business Profile | Sekcja "O Nas" + Person schema |
+| 19-26.06 | TripAdvisor | Content optimization artykułów |
+| 26.06-03.07 | noclegi.pl + nocowanko.pl | 2 nowe artykuły blogowe |
+| 03-10.07 | YouTube Short + e-turystyka.pl | 2 nowe artykuły blogowe |
+| 10-24.07 | Zbieranie opinii od gości | Audyt Nr 3 + raport |
 
 ---
 
-## Roadmap — Szacowany Postęp
+## Szacowany Postęp
 
-```
-Start (teraz):     27/100 ████░░░░░░░░░░░░░░░░
-Po Quick Wins:     39/100 ████████░░░░░░░░░░░░
-Po Fazie 1:        52/100 ██████████░░░░░░░░░░
-Po Fazie 2:        62/100 ████████████░░░░░░░░
-Po Fazie 3:        72/100 ██████████████░░░░░░
-Po Fazie 4:        82/100 ████████████████░░░░
-Po Fazie 5:        87/100 █████████████████░░░
-Po Fazie 6:        93/100 ██████████████████░░
-```
-
----
-
-## Priorytety dla Ciebie (w kolejności)
-
-### Zrób SAM (nie wymaga kodu):
-1. **Google Business Profile** — zweryfikuj, uzupełnij, załaduj zdjęcia, odpowiedz na recenzje
-2. **TripAdvisor** — dodaj obiekt
-3. **Portale turystyczne** — noclegi.pl, nocowanko.pl (rejestracja)
-4. **YouTube Short** — 60-sekundowy film z domkami
-
-### Poproś Claude (wymaga kodu):
-1. **Faza 1** — Blog jako static HTML (największy bang for buck)
-2. **Faza 2** — Rozszerzone FAQ + Offer schema + Review JSON-LD
-3. **Faza 3** — Sekcja "O Nas" + regulamin na własnej domenie
-4. **Faza 5** — Robots.txt + meta robots + sitemap update
+| Moment | Wynik GEO | Co się zmieni |
+|---|---|---|
+| Teraz (12.06) | 55/100 | — |
+| Po sekcji "O Nas" + schema | ~60/100 | E-E-A-T +5, Schema +3 |
+| Po content optimization | ~63/100 | E-E-A-T +3, Citability +3 |
+| Po GBP + TripAdvisor | ~70/100 | Brand +15, Platform +8 |
+| Po nowych artykułach | ~73/100 | Citability +5, Platform +3 |
+| Po portalach turystycznych | ~78/100 | Brand +8, Platform +5 |
+| **Cel na 12.07** | **~75-80/100** | |
 
 ---
 
-## Weryfikacja Postępu
-
-Po każdej fazie sprawdź:
-- **Google Rich Results Test:** search.google.com/test/rich-results
-- **Schema Validator:** validator.schema.org
-- **PageSpeed Insights:** pagespeed.web.dev (Core Web Vitals)
-- **Google Search Console** — czy sitemap zaindeksowany, czy nie ma błędów schema
-
-Raz na miesiąc: uruchom `/geo audit https://www.domkinaluzie.pl` żeby zobaczyć postęp w scorze.
-
----
-
-*Plan wygenerowany na podstawie GEO-AUDIT-REPORT.md — domkinaluzie.pl — 2026-06-02*
+*Plan GEO-SEO — domkinaluzie.pl — Czerwiec-Lipiec 2026 — FILAR AI*
