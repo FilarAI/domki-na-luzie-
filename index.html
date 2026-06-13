@@ -448,6 +448,10 @@
       order: 3;
     }
 
+    .hero-content .hero-age-info {
+      order: 3.5;
+    }
+
     .hero-content .hero-cta-group {
       order: 4;
     }
@@ -481,9 +485,41 @@
       font-size: 1.1rem;
       color: rgba(245, 240, 232, 0.8);
       max-width: 520px;
-      margin: 0 0 2.5rem;
+      margin: 0 0 1.25rem;
       font-weight: 300;
       line-height: 1.65;
+    }
+
+    .hero-age-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 2rem;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(245, 240, 232, 0.85);
+      background: rgba(30, 43, 30, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(245, 240, 232, 0.14);
+      border-radius: 100px;
+      align-self: flex-start;
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    .hero-age-info svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .hero-age-info {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.75rem;
+        margin-bottom: 1.5rem;
+      }
     }
 
     .hero-cta-group {
@@ -3231,6 +3267,16 @@
       </h1>
       <p class="hero-subtitle">
         Prywatne domki premium - między Krakowem a Zakopanem.
+      </p>
+
+      <p class="hero-age-info" aria-label="Informacja o wieku gości">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>Obiekt dla gości od 12. roku życia</span>
       </p>
 
       <div class="hero-cta-group">
