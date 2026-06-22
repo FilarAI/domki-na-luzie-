@@ -468,9 +468,9 @@ function matchTopic(text){
 }
 
 function buildLengths(){
-  return state.len==='short' ? {bodies:1,feats:0} :
-         state.len==='long'  ? {bodies:2,feats:4} :
-                               {bodies:2,feats:3};
+  return state.len==='short' ? {bodies:1, feats:0, trust:0, extra:false} :
+         state.len==='long'  ? {bodies:3, feats:4, trust:2, extra:true} :
+                               {bodies:2, feats:3, trust:1, extra:false};
 }
 
 function generate(){
@@ -523,11 +523,21 @@ function generate(){
   parts.push(h);
   parts.push(bodies.join('\n\n'));
   if(featBlock) parts.push(featBlock);
-  if(state.len!=='short'){
-    // wybierz potwierdzenie, którego treść nie pojawiła się już w benefitach
+  if(cfg.trust>0){
     const soFar=stripEmoji(parts.join(' ')).toLowerCase();
     const freeTrust=BIZ.trust.filter(t=>!soFar.includes(stripEmoji(t).toLowerCase().split('—')[0].trim()));
-    parts.push(pick(freeTrust.length?freeTrust:BIZ.trust));
+    const pool=freeTrust.length>=cfg.trust?freeTrust:BIZ.trust;
+    const picked=sample(pool,Math.min(cfg.trust,pool.length));
+    parts.push(picked.join('\n'));
+  }
+  if(cfg.extra){
+    const extras=[
+      'Domki na Luzie to jedyne domki premium z basenem i jacuzzi w tej lokalizacji — między Krakowem (~60 km) a Zakopanem (~40 km).',
+      'Obiekt otwarty przez cały rok: latem basen i szlaki, zimą stok narciarski 1 km od drzwi.',
+      'Każdy z 3 domków mieści 4 osoby i ma prywatny parking — rezerwuj bezpośrednio, bez prowizji portali.',
+      'Minimalna długość pobytu to 2 noce. Zadatek 30% przy rezerwacji, reszta przy przyjeździe.'
+    ];
+    parts.push(pick(extras));
   }
   parts.push(closing);
   if(state.contact) parts.push(contactBlock(useEmoji));
