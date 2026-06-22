@@ -146,9 +146,8 @@
     <div class="controls">
       <span class="ctl-label">Długość</span>
       <div class="seg" id="lenSeg">
-        <button data-len="short">Krótki</button>
-        <button data-len="medium" class="on">Średni</button>
-        <button data-len="long">Dłuższy</button>
+        <button data-len="short" class="on">Krótki</button>
+        <button data-len="long">Długi</button>
       </div>
       <label class="toggle"><input type="checkbox" id="emojiToggle" checked /> Emoji</label>
       <label class="toggle"><input type="checkbox" id="contactToggle" checked /> Dane kontaktowe</label>
@@ -390,7 +389,7 @@ const GENERAL = {
 /* ============================================================
    STAN + UI
    ============================================================ */
-let state={ topic:null, len:"medium", emoji:true, contact:true, lastUsed:null };
+let state={ topic:null, len:"short", emoji:true, contact:true, lastUsed:null };
 
 const chipsEl=document.getElementById('chips');
 Object.keys(TOPICS).forEach(id=>{
@@ -469,7 +468,6 @@ function matchTopic(text){
 
 function buildLengths(){
   return state.len==='short' ? {bodies:1, feats:0, trust:0, extra:false} :
-         state.len==='long'  ? {bodies:3, feats:4, trust:2, extra:true} :
                                {bodies:2, feats:3, trust:1, extra:false};
 }
 
