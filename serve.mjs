@@ -45,6 +45,8 @@ const SECURITY_HEADERS = {
 http.createServer((req, res) => {
   let urlPath = req.url.split('?')[0];
   if (urlPath === '/') urlPath = '/index.html';
+  // katalog (ścieżka z końcowym /) -> index.html, jak na Vercel
+  else if (urlPath.endsWith('/')) urlPath += 'index.html';
 
   // Decode URL and resolve to absolute path — prevent path traversal
   let filePath;
