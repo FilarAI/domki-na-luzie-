@@ -1,0 +1,316 @@
+{
+  "summary": {
+    "health_score": 52,
+    "business_type": "Local Service / Hospitality — wynajem domków wypoczynkowych (LodgingBusiness), 3 obiekty, Spytkowice 34-745, Beskidy",
+    "audit_date": "2026-07-23",
+    "pages_analyzed": 8,
+    "prepared_by": "FILAR AI",
+    "top_findings": [
+      "Ukryty tekst dla robotów: 1028 słów przyciętych CSS-em do 1x1 px z mikrodanymi Article (index.html ~5934) — naruszenie zasad Google dot. ukrytego tekstu oraz danych strukturalnych na niewidocznej treści; 9 z 17 zdań duplikuje /blog/termy-spa-okolica-beskidy.html",
+      "Cudze opinie w danych strukturalnych: aggregateRating 9.6/50 to ocena Booking.com, a wszystkie znaczniki Review mają publisher 'Google' lub 'Booking.com' — ryzyko ręcznej kary",
+      "Błędne współrzędne geograficzne: JSON-LD wskazuje 49.6234/19.7183, faktyczny adres to 49.5729/19.8005 (różnica ~8 km, inna gmina); mapa Google używa fikcyjnego CID 0x123456789",
+      "LCP 14,0 s na mobile przy progu 2,5 s — 5,94 MB obrazów i 126 KB nieużywanego Tailwind CDN (773 ms blokowania renderowania)",
+      "H1 strony głównej bez żadnej frazy komercyjnej — brak słów Beskidy, basen, jacuzzi i lokalizacji"
+    ],
+    "quick_wins": [
+      "Usunąć <script src=\"https://cdn.tailwindcss.com\"> — 126 KB i 773 ms, 0 klas Tailwinda w użyciu (zweryfikowano 167 nazw klas), 5 minut",
+      "Poprawić literówkę 'młodziey' → 'młodzieży' w pierwszym ekranie (index.html:3353), 1 minuta",
+      "Usunąć ukryty blok tekstu dla robotów wraz z 3 blokami JSON-LD wskazującymi na jego kotwice, 15 minut",
+      "Poprawić współrzędne w dwóch blokach JSON-LD (linie 2895, 3087), 20 minut",
+      "Przepisać H1 na 'Domki premium z basenem i jacuzzi w Beskidach — dla par i grup przyjaciół', 15 minut"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Jakość treści (E-E-A-T)",
+      "score": 58,
+      "weight": 23,
+      "what_works": [
+        "Realna właścicielka wskazana z imienia — autentyczny sygnał E-E-A-T",
+        "5 wpisów blogowych z konkretną wiedzą lokalną: odległości, ceny biletów, czasy przejścia",
+        "Opinie gości z atrybucją do źródła",
+        "Poprawnie wdrożone FAQPage"
+      ],
+      "findings": [
+        {
+          "title": "Oceny podane bez klikalnego źródła",
+          "severity": "Medium",
+          "description": "Badge 'Google 4.9/5' i 'Booking 9.6/10' są eksponowane w pierwszym ekranie, ale nie prowadzą do profili źródłowych. Dodatkowo liczba opinii jest niespójna: dane strukturalne mówią o 50, wpis blogowy o 63+45.",
+          "recommendation": "Dodać linki do wizytówki Google i profilu Booking.com; ujednolicić liczbę opinii we wszystkich miejscach."
+        },
+        {
+          "title": "Literówka w pierwszym ekranie strony głównej",
+          "severity": "High",
+          "description": "index.html:3353 — 'dla dorosłych i młodziey 12+' zamiast 'młodzieży'. Widoczne natychmiast na najważniejszej podstronie.",
+          "recommendation": "Poprawić na 'młodzieży'."
+        },
+        {
+          "title": "Brak osobnych stron poszczególnych domków",
+          "severity": "Medium",
+          "description": "Przy 3 obiektach każdy mógłby mieć własną podstronę z galerią i specyfikacją, bez ryzyka cienkiej treści.",
+          "recommendation": "Utworzyć 3 podstrony domków z unikalnym opisem, zdjęciami i pojemnością."
+        }
+      ]
+    },
+    {
+      "name": "SEO techniczne",
+      "score": 54,
+      "weight": 22,
+      "what_works": [
+        "TTFB 103 ms, Vercel edge, cache HIT",
+        "Brotli aktywne — 234 KB HTML transferowane jako 44,5 KB",
+        "HTTPS + HSTS poprawnie skonfigurowane",
+        "robots.txt wzorowo dopuszcza roboty AI, brak blokowania na brzegu CDN",
+        "Brak zależności od JavaScriptu — treść w surowym HTML",
+        "Poprawne kanoniczne i unikalne meta na wszystkich 8 podstronach"
+      ],
+      "findings": [
+        {
+          "title": "Ukryty tekst przeznaczony dla robotów",
+          "severity": "Critical",
+          "description": "index.html ~5933-6013: div ze stylem position:absolute;width:1px;height:1px;clip:rect(0,0,0,0) i aria-hidden='true' zawiera 5 elementów article, 1028 słów, z mikrodanymi schema.org/Article. Komentarz w kodzie: 'GEO: Static blog content for AI crawlers (hidden visually, indexable by bots)'. 9 z 17 długich zdań duplikuje dosłownie /blog/termy-spa-okolica-beskidy.html. Ekstraktor treści zwraca ten ukryty tekst jako wiodącą treść strony głównej.",
+          "recommendation": "Usunąć cały div oraz 3 bloki JSON-LD wskazujące na jego kotwice (linie ~3226/3237/3248). Treść już istnieje na widocznych stronach bloga."
+        },
+        {
+          "title": "Meta http-equiv nie działa jako nagłówek bezpieczeństwa",
+          "severity": "High",
+          "description": "Strona deklaruje X-Frame-Options i X-Content-Type-Options przez <meta http-equiv>, co przeglądarki ignorują — działają wyłącznie prawdziwe nagłówki HTTP. Brak pliku vercel.json.",
+          "recommendation": "Dodać vercel.json z nagłówkami X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy."
+        },
+        {
+          "title": "Przekierowanie apex → www jest tymczasowe (307)",
+          "severity": "Medium",
+          "description": "domkinaluzie.pl zwraca 307 zamiast 301, co nie przekazuje mocy linkowej jednoznacznie.",
+          "recommendation": "Zmienić na 301 w konfiguracji domeny Vercel."
+        },
+        {
+          "title": "Brak strony-huba bloga i zerowe linkowanie między wpisami",
+          "severity": "Medium",
+          "description": "Każdy z 5 wpisów ma dokładnie 1 link przychodzący (ze strony głównej), żaden nie linkuje do innego wpisu. Nie istnieje strona /blog/.",
+          "recommendation": "Utworzyć hub /blog/ oraz dodać po 2-3 linki kontekstowe w treści każdego wpisu."
+        }
+      ]
+    },
+    {
+      "name": "SEO on-page",
+      "score": 55,
+      "weight": 20,
+      "what_works": [
+        "Dokładnie jeden H1 na każdej podstronie",
+        "Unikalne title i description na wszystkich 8 podstronach",
+        "100% obrazów ma atrybut alt",
+        "Poprawne tagi Open Graph z og:image, og:url, og:type"
+      ],
+      "findings": [
+        {
+          "title": "H1 strony głównej bez frazy komercyjnej",
+          "severity": "High",
+          "description": "H1 brzmi 'Miejsce dla par, lub grupy przyjaciół. - domki premium' — nie zawiera słów Beskidy, basen ani jacuzzi, mimo że wszystkie są w title i stanowią realną przewagę obiektu.",
+          "recommendation": "Przepisać na: 'Domki premium z basenem i jacuzzi w Beskidach — dla par i grup przyjaciół'."
+        },
+        {
+          "title": "Wszystkie 8 tytułów przekracza limit długości",
+          "severity": "Medium",
+          "description": "Zmierzone długości: 68-80 znaków przy bezpiecznym progu ~60. Każdy tytuł jest ucinany w wynikach wyszukiwania. Trzy opisy meta przekraczają 160 znaków.",
+          "recommendation": "Skrócić tytuły do ~55-60 znaków, przenosząc najważniejsze frazy na początek."
+        },
+        {
+          "title": "Brak tagu twitter:card",
+          "severity": "Low",
+          "description": "Open Graph jest kompletny, ale brakuje twitter:card — linki udostępniane na X/Twitterze wyświetlą się bez dużej grafiki.",
+          "recommendation": "Dodać <meta name=\"twitter:card\" content=\"summary_large_image\">."
+        }
+      ]
+    },
+    {
+      "name": "Dane strukturalne",
+      "score": 42,
+      "weight": 10,
+      "what_works": [
+        "7 bloków JSON-LD, wszystkie poprawne składniowo",
+        "LodgingBusiness z pełnym adresem, telefonem i godzinami zameldowania",
+        "FAQPage wdrożone poprawnie",
+        "LocationFeatureSpecification opisuje udogodnienia obiektu"
+      ],
+      "findings": [
+        {
+          "title": "Cudze opinie republikowane jako własne dane strukturalne",
+          "severity": "Critical",
+          "description": "aggregateRating deklaruje ratingValue 9.6 i ratingCount 50 — to ocena Booking.com, co potwierdza widoczna treść strony w trzech miejscach. Wszystkie 8 znaczników Review ma publisher ustawiony na 'Google' (x4) lub 'Booking.com' (x4), czyli kod sam dokumentuje, że to cudze opinie. ratingCount 50 nie występuje nigdzie w widocznej treści.",
+          "recommendation": "Usunąć aggregateRating i tablicę Review z JSON-LD. Opinie mogą pozostać widoczne na stronie z podaniem źródła i linkiem. Znacznikami oznaczać wyłącznie opinie zebrane bezpośrednio przez obiekt."
+        },
+        {
+          "title": "Mikrodane Article na niewidocznej treści",
+          "severity": "Critical",
+          "description": "5 elementów article itemtype='schema.org/Article' znajduje się wewnątrz diva przyciętego do 1px z aria-hidden='true'. Trzy z nich są dodatkowo celem JSON-LD Article.mainEntityOfPage wskazującego na kotwice #static-blog1/2/3, które nie są realnymi adresami URL.",
+          "recommendation": "Usunąć ukryty div oraz 3 odpowiadające mu bloki JSON-LD."
+        },
+        {
+          "title": "Brak schematu Offer dla pakietów i vouchera",
+          "severity": "Medium",
+          "description": "Strona prezentuje 4 pakiety pobytowe z cenami (1200-2000 zł za 2 noce) oraz nowy bon podarunkowy, ale żadne z nich nie ma znacznika Offer ani priceRange.",
+          "recommendation": "Dodać priceRange do LodgingBusiness oraz Offer dla pakietów i bonu podarunkowego."
+        }
+      ]
+    },
+    {
+      "name": "Wydajność (Core Web Vitals)",
+      "score": 47,
+      "weight": 10,
+      "what_works": [
+        "TTFB 103 ms — infrastruktura nie jest wąskim gardłem",
+        "Brotli poprawnie skonfigurowane (5,3x kompresji)",
+        "Podstrony bloga są lekkie — 11,3 KB transferu",
+        "preconnect obecne dla Google Fonts"
+      ],
+      "findings": [
+        {
+          "title": "Tailwind CDN ładowany i w 100% nieużywany",
+          "severity": "High",
+          "description": "126 354 B transferu. Analiza wszystkich 167 nazw klas w serwowanym body wykazała 0 klas Tailwinda — strona ma własny CSS. Wersja 'Play' uruchamia dodatkowo kompilator JIT w przeglądarce. Lighthouse: 773 ms blokowania renderowania.",
+          "recommendation": "Usunąć jeden tag script. Bez zmian wizualnych. Najlepszy stosunek efektu do nakładu w całym audycie."
+        },
+        {
+          "title": "5,94 MB obrazów na stronie głównej",
+          "severity": "High",
+          "description": "Pojedynczy plik PNG waży 2 361 221 B i jest wyświetlany w slocie 316x237 px. CDN GetResponse nie negocjuje formatów — mimo nagłówka Accept: image/avif,image/webp zwraca PNG. Fotografia zapisana bezstratnie jako PNG to źródło problemu.",
+          "recommendation": "Przekodować zdjęcia do WebP (jakość ~80) lub AVIF. Wspomniany plik powinien zejść do 150-250 KB. Do odzyskania do ~4,1 MB."
+        },
+        {
+          "title": "LCP 14,0 s na urządzeniach mobilnych",
+          "severity": "High",
+          "description": "Pomiar Lighthouse przy progu 2,5 s. Wynika z blokującego łańcucha zasobów: Tailwind CDN, Swiper w head, fonty. CLS na blogu 0,150 przy progu 0,1 (reflow przy podmianie fontu).",
+          "recommendation": "Po usunięciu Tailwinda i optymalizacji obrazów: dodać defer do Swipera, preconnect do us-ms.gr-cdn.com, preload wyłącznie pierwszego slajdu."
+        },
+        {
+          "title": "32 z 37 obrazów bez atrybutów width i height",
+          "severity": "Medium",
+          "description": "Brak rezerwacji miejsca przed załadowaniem obrazu — bezpośrednia przyczyna przesunięć układu.",
+          "recommendation": "Dodać width i height (lub CSS aspect-ratio) do każdego elementu img."
+        }
+      ]
+    },
+    {
+      "name": "Gotowość na wyszukiwanie AI (GEO)",
+      "score": 51,
+      "weight": 10,
+      "what_works": [
+        "robots.txt jawnie dopuszcza GPTBot, ClaudeBot, PerplexityBot, anthropic-ai, ChatGPT-User, Google-Extended",
+        "Zweryfikowano prawdziwymi User-Agent botów AI: brak blokowania na brzegu CDN, treść identyczna co dla przeglądarki",
+        "llms.txt istnieje i zwraca 200",
+        "Treść w surowym HTML — brak bariery renderowania dla modeli",
+        "Blog zawiera konkretne, cytowalne liczby: odległości, ceny, czasy przejścia"
+      ],
+      "findings": [
+        {
+          "title": "Ukryty blok tekstu zaburza ekstrakcję treści przez modele AI",
+          "severity": "Critical",
+          "description": "Uruchomienie ekstraktora treści na stronie głównej zwraca ukryty tekst o termach jako wiodącą treść strony, zamiast informacji o domkach. Element dodany, by pomóc modelom AI, w praktyce psuje to, jak opisują one ofertę — działa odwrotnie niż zamierzono.",
+          "recommendation": "Usunąć blok. Właściwa droga do tego samego celu to widoczna, dobrze ustrukturyzowana treść na stronie oraz realne podstrony bloga, które już tę treść zawierają."
+        },
+        {
+          "title": "Wszystkie działania zewnętrzne z audytów GEO nr 1 i nr 2 pozostają niezrealizowane",
+          "severity": "High",
+          "description": "7 rekomendacji off-site (TripAdvisor, wizytówka Google, portale branżowe, YouTube) nie zostało wdrożonych 7 tygodni po audycie nr 2. Modele AI budują rozpoznanie marki na źródłach trzecich, nie na samej stronie — to obecnie główne ograniczenie widoczności.",
+          "recommendation": "Priorytetowo: wizytówka Google i TripAdvisor, następnie portale noclegowe."
+        },
+        {
+          "title": "Sprzeczne dane liczbowe w treści",
+          "severity": "Medium",
+          "description": "Trzy różne czasy dojazdu do Term Gorący Potok na tej samej stronie: ~20 min, 20-25 min oraz 45 km/~40 min. Modele AI cytują konkretne liczby, sprzeczność obniża wiarygodność źródła.",
+          "recommendation": "Ujednolicić wszystkie odległości i czasy dojazdu na podstawie jednego, zweryfikowanego pomiaru."
+        }
+      ]
+    },
+    {
+      "name": "Obrazy",
+      "score": 45,
+      "weight": 5,
+      "what_works": [
+        "100% obrazów posiada atrybut alt z sensownym opisem",
+        "Obrazy dekoracyjne poprawnie oznaczone"
+      ],
+      "findings": [
+        {
+          "title": "Brak nowoczesnych formatów obrazów",
+          "severity": "High",
+          "description": "Wszystkie zdjęcia serwowane jako JPEG lub PNG. CDN nie negocjuje WebP/AVIF mimo odpowiedniego nagłówka Accept. Jeden PNG waży 2,36 MB.",
+          "recommendation": "Przekodować do WebP/AVIF lub przenieść obrazy do repozytorium i wykorzystać optymalizację obrazów Vercel."
+        },
+        {
+          "title": "Brak wymiarów i lazy loading na większości obrazów",
+          "severity": "Medium",
+          "description": "32 z 37 obrazów bez width/height. Cztery obrazy hero ładowane eagerly.",
+          "recommendation": "Dodać wymiary do wszystkich obrazów, loading='lazy' do wszystkich poza pierwszym slajdem hero."
+        }
+      ]
+    }
+  ],
+  "supplementary_categories": [
+    {"name": "SEO lokalne", "score": 58, "note": "Dobra spójność NAP, słuszna strategia jednej lokalizacji; ograniczone przez błędne współrzędne, fikcyjny CID mapy i niezweryfikowany stan wizytówki Google"},
+    {"name": "Doświadczenie wyszukiwania (SXO)", "score": 46, "note": "Serwis nie pojawia się na żadnej z 7 sprawdzonych fraz komercyjnych; 5 z 7 zdominowanych przez agregatory"},
+    {"name": "Warstwa wizualna", "score": 62, "note": "Wyrazisty design z poprawnymi podstawami; obniżone przez literówkę w pierwszym ekranie i zmienny kontrast tekstu na hero"},
+    {"name": "Profil linków", "score": 30, "note": "Wynik odzwierciedla brak danych, nie potwierdzoną słabość — brak płatnego API, domena nieobecna w Common Crawl"}
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Faza 1: Problemy regulaminowe",
+        "timeframe": "Tydzień 1 (~1,5 h)",
+        "items": [
+          "Usunąć ukryty blok tekstu dla robotów (index.html ~5933-6013) oraz 3 bloki JSON-LD wskazujące na jego kotwice",
+          "Usunąć aggregateRating i tablicę Review z JSON-LD; opinie zostawić widoczne na stronie z podaniem źródła",
+          "Poprawić współrzędne na 49.5729/19.8005 w obu blokach JSON-LD i wygenerować od nowa osadzenie mapy Google"
+        ]
+      },
+      {
+        "name": "Faza 2: Wydajność i on-page",
+        "timeframe": "Tydzień 2 (~1 dzień)",
+        "items": [
+          "Usunąć script Tailwind CDN — 126 KB i 773 ms, zero klas w użyciu",
+          "Przekodować zdjęcia do WebP/AVIF — do odzyskania ~4,1 MB",
+          "Dodać defer do Swipera, preconnect do CDN obrazów, preload pierwszego slajdu, width/height do 32 obrazów",
+          "Przepisać H1 strony głównej na wersję z frazami: Beskidy, basen, jacuzzi",
+          "Poprawić literówkę 'młodziey' na 'młodzieży' (index.html:3353)"
+        ]
+      },
+      {
+        "name": "Faza 3: Struktura i treść",
+        "timeframe": "Miesiąc 2 (~2 dni)",
+        "items": [
+          "Dodać 2-3 linki kontekstowe między wpisami bloga i sekcję 'Zobacz też'",
+          "Utworzyć stronę-hub /blog/",
+          "Skrócić wszystkie 8 tytułów do ~55-60 znaków i 3 opisy meta do 160 znaków",
+          "Dodać vercel.json z prawdziwymi nagłówkami bezpieczeństwa",
+          "Zmienić przekierowanie apex → www z 307 na 301",
+          "Ujednolicić sprzeczne odległości i czasy dojazdu",
+          "Rozważyć 3 osobne podstrony domków"
+        ]
+      },
+      {
+        "name": "Faza 4: Autorytet i monitoring",
+        "timeframe": "Ciągłe",
+        "items": [
+          "Wdrożyć 7 zaległych działań zewnętrznych z audytów GEO nr 1 i nr 2 — priorytet: wizytówka Google i TripAdvisor",
+          "Poprosić o linki zwrotne Kompleks Beskid i Termy Gorący Potok, do których serwis już linkuje bezpłatnie, oraz Gminę Spytkowice",
+          "Zweryfikować błędny numer telefonu w meteor-turystyka.pl i niezgodny opis w hotelcynamon.pl",
+          "Sprawdzić podejrzany klon marki booked.com.pl w wynikach brandowych",
+          "Podpiąć Google Search Console i klucz PageSpeed API dla danych polowych"
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Brak danych polowych — nie skonfigurowano Google Search Console ani klucza PageSpeed API; brak rzeczywistych CWV użytkowników, danych o indeksacji i pozycjach",
+    "Profil linków zbadany częściowo — brak płatnego API, domena nieobecna w Common Crawl, część zapytań do wyszukiwarek zablokowana",
+    "Stan wizytówki Google niezweryfikowany bez dostępu do API",
+    "Warstwa wizualna — potwierdzono widok mobilny 375 px; widok desktop i mobilny bloga nie zostały zarejestrowane",
+    "Dane SERP z wyszukiwania, nie ze zrzutu surowego SERP-a — obecność w Local Pack i AI Overviews niezweryfikowana"
+  ],
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "report": "FULL-AUDIT-REPORT.md",
+    "action_plan": "ACTION-PLAN.md"
+  }
+}
